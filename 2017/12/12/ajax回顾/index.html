@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>ajax回顾 | ZhangQiang&#39;s blog | Follow ur heart.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="ajax">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.2.6">
+    
+	
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":true,"app_id":"LSbj8deFCLr0XdOxT6aGGld9-gzGzoHsz","app_key":"u5T5LgryYWwkfxkw0kjSsTcJ","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"LSbj8deFCLr0XdOxT6aGGld9-gzGzoHsz","appkey":"u5T5LgryYWwkfxkw0kjSsTcJ","notify":true,"verify":false,"placeholder":"如您有其他建议，可以通过博客中的微博，QQ联系我...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"codefine","repo":"gitment","oauth":{"client_id":null,"client_secret":null},"perPage":10}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.png" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">zhangqiang</h5>
+          <a href="mailto:350037310@qq.com" title="350037310@qq.com" class="mail">
+            
+              <span>3</span>
+            
+              <span>5</span>
+            
+              <span>0</span>
+            
+              <span>0</span>
+            
+              <span>3</span>
+            
+              <span>7</span>
+            
+              <span>3</span>
+            
+              <span>1</span>
+            
+              <span>0</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://https://github.com/ZQ-jhon" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://sighttp.qq.com/authd?IDKEY=1c72f08d824e28c2b7c02e5b43e8e6a04124774470d4dcce" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://blog.csdn.net/qq_20264891" target="_blank">
+                  <i class="icon icon-lg icon-copyright"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                首页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                概览
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                笔记
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-github"></i>
+                项目
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                留言板
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>ajax回顾</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.png" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">ajax回顾</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-12T09:04:00.000Z" itemprop="datePublished" class="page-time">
+  2017-12-12
+</time>
+
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-ajax回顾"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">ajax回顾</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-12 17:04:00" datetime="2017-12-12T09:04:00.000Z"  itemprop="datePublished">2017-12-12</time>
+
+            
+
+
+            
+	<span id="/2017/12/12/ajax回顾/" class="leancloud_visitors" data-flag-title="ajax回顾" title="ajax回顾">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/2017/12/12/ajax回顾/#comment">
+            <span class="valine-comment-count" data-xid="/2017/12/12/ajax回顾/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>本文初始编辑地址，源自我的CSDN博客：<a href="http://blog.csdn.net/qq_20264891/article/details/78781917" target="_blank" rel="noopener">我的CSDN博客</a></p>
+<h2 id="jq与原生以及angular中的ajax（长文）"><a href="#jq与原生以及angular中的ajax（长文）" class="headerlink" title="jq与原生以及angular中的ajax（长文）"></a><strong>jq与原生以及angular中的ajax（长文）</strong></h2><p><a href="http://blog.csdn.net/qq_20264891/article/details/78457021" target="_blank" rel="noopener">http://blog.csdn.net/qq_20264891/article/details/78457021</a></p>
+<p>上面是之前写的一篇关于ajax的帖子，里面的集成包xampp的配置方法有点不太科学，</p>
+<p>虽然这样可以运行，但感觉不是很美滋滋。</p>
+<p>感谢新浪博主@期待下一站幸福</p>
+<p>具体参考原文地址：<a href="http://blog.sina.com.cn/s/blog_ae1d0a810102wvy6.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_ae1d0a810102wvy6.html</a></p>
+<p>配置外部服务器，运行后端代码php？<br>对于完全是小白的我而言，实在是想都不敢想。因为得学习Ajax，就必须得给服务器的发送请求和等待服务器响。所以就在老师的带领下，开始了服务器的配置。</p>
+<p>首先介绍一下，我用的IDE:​HBuilder. 后端语言是php。</p>
+<p>我使用的是模拟服务器的软件：XAMPP​</p>
+<p>(下载地址：<a href="https://www.apachefriends.org/download.html" target="_blank" rel="noopener">https://www.apachefriends.org/download.html</a>)</p>
+<p>然后说一下，我要做什么样的效果：</p>
+<p>让一个PHP文件在本地服务器上运行。（对！就是这么简单，我捣鼓了一个多小时…）​</p>
+<p>好了，接下来我们来看看吧。</p>
+<p>​</p>
+<p>1,安装一个模拟的服务器。</p>
+<p>如果你和我一样，没有任何的​Apache，MySQL，tomcat等WEB服务器。那就下载一个XAMPP.【好用于部署一个本地服务器】</p>
+<p>​安装完成后，打开的界面是这样子的：<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212150943894?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure><br>我们可以先点击“start”启动，这时候需要注意的是：可能出现错误。【错误是：端口被占用】。</p>
+<blockquote>
+<figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212151012172?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="引用块内容" title="" class="">
+                <p>引用块内容</p>
+            </figure>
+</blockquote>
+<p>解决方法是：点击config–进入Apache（httpd.conf）–找到listen（监听的端口号）进行修改。如图：<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212151304609?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure></p>
+<p>好了，可以重新启动Apache啦。</p>
+<p><strong>2.打开HBuilder，然后新建一个项目。</strong></p>
+<p>注意：新建的项目—一定要在我们刚刚打开的XMAPP安装目录下的​htdocs文件夹下面。</p>
+<p>（不要问为啥，这是我一晚上调试出来的经验）​<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212151354297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure><br>﻿在安装目录下的htdocs，新建文件</p>
+<p>3.在HBuilder中的快捷工具栏中找到【浏览器】，打开它的下拉菜单，点击【设置web服务器】。</p>
+<p>进入页面点击”外置web服务器“​–选择”新建“</p>
+<figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212151434576?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure>
+<figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212151454782?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure>
+<p>添加本地服务器</p>
+<p><img src="http://img.blog.csdn.net/20171212151518701?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>4.把你写的PHP文件可以在浏览器中，打开了。</p>
+<p>这是我的源文件：<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212151552039?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure></p>
+<figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212151609984?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure>
+<h1 id="OK-接下来才是正文："><a href="#OK-接下来才是正文：" class="headerlink" title="OK,接下来才是正文："></a><strong><em>OK,接下来才是正文：</em></strong></h1><h1 id="一、javaScript原生Ajax"><a href="#一、javaScript原生Ajax" class="headerlink" title="一、javaScript原生Ajax"></a><strong>一、javaScript原生Ajax</strong></h1><p><strong>1.浏览器自带的与服务器交互的对象及附带API</strong></p>
+<p><strong>该对象是一个全局对象，即位于window对象下。IE与非IE，该对象不同</strong></p>
+<p>非IE &amp;&amp; IE7+ : XMLHttpRequest</p>
+<p>IE5,IE6: ActiveXObject</p>
+<p><strong>2.兼容创建大法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var xhr=null;//初始化变量</span><br><span class="line"></span><br><span class="line">if(window.XMLHttpRequest)&#123;</span><br><span class="line">//非IE&amp;&amp;IE7+</span><br><span class="line"></span><br><span class="line">xhr = new XMLHttpRequest();</span><br><span class="line">&#125;</span><br><span class="line">else if(window.ActiveXObject)&#123;</span><br><span class="line"></span><br><span class="line">xhr = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);//不同的IE版本，里面写的东西不一样，具体请自行baidu</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.创建好之后的后续步骤</strong></p>
+<p>xhr.open()  //该方法用于 <strong>创建</strong>  连接服务端的请求。</p>
+<p>xhr.send();  //所有的事情完毕，正式发送请求。</p>
+<p>注意：</p>
+<p>xhr.open(method,url,async)  请求方式，请求地址，是否异步？(ps:默认为true,异步执行)</p>
+<p>设置好open中的传参，接着执行xhr.send()。</p>
+<p><strong>4.如何知道请求与相应成功不成功？？</strong></p>
+<p>这里，xhr对象自带 一个方法，用来检测连接是否成功，以及对xhr创建过程进行监听，</p>
+<p>为什么这样说呢？直接看代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> xhr.onreadystatechange=function()&#123;</span><br><span class="line">    </span><br><span class="line">    	if(xhr.readyState=4&amp;&amp;xhr.status==200)&#123;</span><br><span class="line">    		</span><br><span class="line">    		document.getElementById(&apos;box&apos;).innerHTML = xhr.responseText;</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">***************上面界定了，请求成功以后，将响应的内容放在我们的box盒子里********</span><br><span class="line"></span><br><span class="line">	xhr.open(&quot;GET&quot;,&quot;01.php?a=5&amp;b=1&quot;,true);//传参a=5,b=1</span><br><span class="line">	xhr.send(); </span><br><span class="line">	</span><br><span class="line">//因为上面的方法是异步执行的，因此不用纠结，xhr.open()和send()的位置。</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果:<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212145801095?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure><br>附上php的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo  &quot;a为&#123;$_GET[&apos;a&apos;]&#125;,那么b为&#123;$_GET[&apos;b&apos;]&#125;&quot;  </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>这里php代码看不懂的话， 可以去<a href="http://blog.csdn.net/qq_20264891/article/details/78748217回顾一下PHP" target="_blank" rel="noopener">http://blog.csdn.net/qq_20264891/article/details/78748217回顾一下PHP</a> 的基本语法。作为一个前端，后端语言要了解其接口和语法，这是最起码的(这个B装的66666)。</p>
+<p><strong>说好的监听xhr对象的创建过程呢？</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange = function()&#123;</span><br><span class="line">//这里加上一句话  :</span><br><span class="line">console.log(&quot;当前的XMLHttpRequest对象的创建进度为&quot;+xhr.readyState)</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>来看打印结果:<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212150218442?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure><br>可见，每次xhr对象自身状态值改变，都会调用函数，因此导致我们打印的结果发生变化。  由此可得，ajax的创建是分步进行的，查询资料可得：</p>
+<ul>
+<li>0 对象未创建</li>
+<li>1 已与服务器连接</li>
+<li>2 服务器已经接受请求</li>
+<li>3 服务器正在处理请求</li>
+<li>4 服务器将请求下发<br><strong>同时，status也需要有响应的返回值，从服务器传递回来，有个状态值(xhr.status)： </strong><br>如果响应成功，就返回200<br>如果没找到，返回404<br>其他还有403,5系列等等，不再赘述。</li>
+</ul>
+<h1 id="二、jQuery中的ajax"><a href="#二、jQuery中的ajax" class="headerlink" title="二、jQuery中的ajax"></a><strong>二、jQuery中的ajax</strong></h1><p>1.load方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">兹有按钮与容器各一个：</span><br><span class="line"></span><br><span class="line">&lt;input type=&quot;button&quot; value=&quot;点我加载&quot; id=&quot;btn&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;box&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">//js如下</span><br><span class="line"></span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	</span><br><span class="line">		$(&apos;#btn&apos;).click(function()&#123;</span><br><span class="line">			$(&apos;#box&apos;).load(&apos;03.php&apos;)</span><br><span class="line"></span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">	</span><br><span class="line">//php如下</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">echo &quot;hello,world!&lt;br/&gt;a  =  &#123;$_POST[&apos;a&apos;]&#125;&lt;br/&gt;b  =   &#123;$_POST[&apos;b&apos;]&#125;&quot;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>这里，点击按钮，box载入响应值，这个方法是get方法。<br>如图：<figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212153748919?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure></p>
+<p>如果，在load()多传一个json对象:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#box&apos;).load(&apos;03.php&apos;,&#123;</span><br><span class="line">				a:5,</span><br><span class="line">				b:1</span><br><span class="line">			&#125;)</span><br></pre></td></tr></table></figure>
+<p>那么这个请求会自动 变成post请求。<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212153930619?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure></p>
+<p>在 Ajax数据载入完毕之后，就能执行回调函数 callback，也就是第三个参数。回调函数<br>也可以传递三个可选参数：responseText（请求返回）、textStatus（请求状态)、XMLHttpRequest对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#btn&apos;).click(function () &#123;</span><br><span class="line">  $(&apos;#box&apos;).load(&apos;03.php&apos;, &#123;</span><br><span class="line">       a:5,</span><br><span class="line">       b:1</span><br><span class="line">  &#125;, function (response, status, xhr) &#123;</span><br><span class="line">        alert(&apos;返回的值为：&apos; + response + &apos;，状态为：&apos; + status + &apos;，</span><br><span class="line">           状态是：&apos; + xhr.statusText);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171212154422827?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure></p>
+<p>这里的status和xhr.statusText都是经过jQuery进行处理的，原本的值应该对应为：<br>200<br><strong>2.<code>$.get()和$.post()</code></strong></p>
+<p>.load()方法是局部方法，因为他需要一个包含元素的 jQuery对象作为前缀。而$.get()和<br>$.post()是全局方法，无须指定某个元素。对于用途而言，.load()适合做静态文件的异步获取，<br>而对于需要传递参数到服务器页面的，$.get()和$.post()更加合适。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#btn&apos;).click($.get(url,&#123;json.data&#125;,callback(),type)&#123;&#125;)</span><br><span class="line"></span><br><span class="line">/*GET方法与load()方法相比，多了最后一个参数，返回类型，可以设置为</span><br><span class="line">xml,html,json,text等，一般不需要设置，都是jQuery智能判断返回的。第一个参数：请求</span><br><span class="line">地址，是必须的，后面的都是可选参数。</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<p><strong><code>$.post()方法</code></strong></p>
+<p>的使用和<code>$.get()</code>基本上一致，他们之间的区别也比较隐晦，基本都是背后的</p>
+<p>不同，在用户使用上体现不出。具体区别如下：</p>
+<p>1.GET请求是通过  URL提交的，而 POST请求则是  HTTP消息实体提交的；</p>
+<p>2.GET提交有大小限制（2KB），而  POST方式不受限制；</p>
+<p>3.GET方式会被缓存下来，可能有安全性问题，而  POST没有这个问题；</p>
+<p>4.GET方式通过<code>$_GET[]</code>获取，POST方式通过<code>$_POST[]</code>获取。<br><strong>3.<code>load(),$.get(),$.post()</code> </strong>的集合：$.ajax</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//ajax是jQuery封装的最底层的方法</span><br><span class="line">		$(&apos;btn[submit]&apos;)[0].click(function()&#123;</span><br><span class="line">			$.ajax(&#123;</span><br><span class="line">				type:&quot;get&quot;,    //请求方式</span><br><span class="line">				url:&quot;02.php&quot;,  //地址</span><br><span class="line">				async:true,      //异步</span><br><span class="line">				success:function(response,status,xhr)&#123;alert(response)&#125;, //成功回调函数</span><br><span class="line">				error:function()&#123;&#125;,//失败回调</span><br><span class="line">				data:$(&apos;form&apos;).serialize()//表单序列化</span><br><span class="line">			&#125;);</span><br><span class="line">			</span><br><span class="line"></span><br><span class="line">		&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="三、AngularJs中的ajax"><a href="#三、AngularJs中的ajax" class="headerlink" title="三、AngularJs中的ajax"></a><strong>三、AngularJs中的ajax</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">在任一一个控制器中注入http依赖</span><br><span class="line"></span><br><span class="line">var app = angular.module(&apos;myApp&apos;,[]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//http模块注入到任一一个控制器中</span><br><span class="line"></span><br><span class="line">app.controller(&apos;ctrl1&apos;,function($scope,$http)&#123;</span><br><span class="line"></span><br><span class="line">$http(&#123; </span><br><span class="line"></span><br><span class="line">    method: &apos;GET&apos;, //选择请求方式</span><br><span class="line">    </span><br><span class="line">    url: &apos;02.php&apos; //请求地址</span><br><span class="line">    </span><br><span class="line">&#125;).then(function successCallback(response) &#123;</span><br><span class="line"></span><br><span class="line">        // 请求成功执行代码</span><br><span class="line">    &#125;, function errorCallback(response) &#123;</span><br><span class="line">    </span><br><span class="line">        // 请求失败执行代码</span><br><span class="line">//语法为：$http.then(success(),fail())</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>声明：v1.5 中$http 的 success 和 error 方法已废弃。使用 then 方法替代。因此千万不要</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$http.success().error()//错误写法！z不能跟jQuery混淆</span><br></pre></td></tr></table></figure>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>Js/jq/angularjs 中ajax的：</p>
+<p><strong>相同点</strong><br>1.都是异步的请求，都支持get,post方法,jq,angular支持(put)。</p>
+<p><strong>不同点：</strong></p>
+<p>1.jq中，对于ajax请求的写法非常简单，非常直观。angular中，通过$http模块也进行相应的封装，非常方便。</p>
+<p>2.普通的javaScript AJAX请求，如果需要GET方法传参，只能强行用”？”追加到url后面，并且不同参数连接要用&amp;进行，非常繁琐。</p>
+<p>3.所谓jq的success(),error()，以及angular的then方法，都是对原生ajax的</p>
+<p>status的不同返回值进行封装,例如：200就会执行success函数，404就执行error函数。</p>
+<p><b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-01-19T07:09:05.872Z" itemprop="dateUpdated">2018-01-19 15:09:05</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2017/12/12/ajax回顾/" target="_blank" rel="external">http://yoursite.com/2017/12/12/ajax回顾/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.png" alt="zhangqiang">
+            zhangqiang
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/12/12/ajax回顾/&title=《ajax回顾》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/12/12/ajax回顾/&title=《ajax回顾》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/12/ajax回顾/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ajax回顾》 — ZhangQiang's blog&url=http://yoursite.com/2017/12/12/ajax回顾/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/12/ajax回顾/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2017/12/12/NodeJs基础配置、核心概念与学习路线回顾/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">NodeJs基础配置、核心概念与学习路线回顾</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2017/12/11/Git与GitHub之远程仓库/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Git与GitHub之远程仓库</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#jq与原生以及angular中的ajax（长文）"><span class="post-toc-number">1.</span> <span class="post-toc-text">jq与原生以及angular中的ajax（长文）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OK-接下来才是正文："><span class="post-toc-number"></span> <span class="post-toc-text">OK,接下来才是正文：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、javaScript原生Ajax"><span class="post-toc-number"></span> <span class="post-toc-text">一、javaScript原生Ajax</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、jQuery中的ajax"><span class="post-toc-number"></span> <span class="post-toc-text">二、jQuery中的ajax</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、AngularJs中的ajax"><span class="post-toc-number"></span> <span class="post-toc-text">三、AngularJs中的ajax</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结："><span class="post-toc-number"></span> <span class="post-toc-text">总结：</span></a>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        支持作者更好的创作
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                zhangqiang &copy; 2018
+            </span>
+        		
+           	
+            
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/12/12/ajax回顾/&title=《ajax回顾》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/12/12/ajax回顾/&title=《ajax回顾》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/12/ajax回顾/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ajax回顾》 — ZhangQiang's blog&url=http://yoursite.com/2017/12/12/ajax回顾/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/12/ajax回顾/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABy0lEQVR42u3aQW7DMAwEQP//0ynQU4EiypKSGR9GpyBw7HEOArnUdcXr9bvWn9/96u/6//11x8LFxd3mvpZrzcofvL5nYsDFxZ3nJptX8sj19Qn9gw0XF/dh3PXDEkS1VMLFxX0+d6cYyv8OXFzc53ATRBKCVJONG3s1XFzcDe6pwHTn8xfyXVxc3NZUIok21k1OddDy4em4uLgj3CS8SBA7r1SNUHFxcWe4vYYkj1OrbVLU/ODi4t7GTTagXkFTHb5GWx4uLu4INy9okgh1JwopRLS4uLg3c/N36h2lyv+IaIvExcUd5O4UH70ha3XTvE7VSri4uBsnGZJLq1vefa+Ki4t7lpu3N9UDmtVhbdRW4eLijnOrw9fqZrcTiODi4n6Lu7+d9UYs+X1wcXFnuPnhieQ1qm1V3hTh4uJOcnuj0/xXvQMZb++Di4s7yM3D0HwMk2yF1RELLi7uJDdfSUSSRy3lIgkXF3eEuzN2rQag1SNc1XAWFxf3LLc3TO1lMNVW6m2Kg4uLO8LthZu9Fuhw+YKLi/tV7k6ZkjRdUVOEi4v7SG4vNDlQ3ODi4o5zzx7P2mmojsUiuLi4G9zegapeU9S7Jy4u7iD3B8W3lYzVQaNUAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.2.6"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.2.6"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.2.6"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.2.6"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/js/plugins/valine.js?v=1.2.6"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/js/plugins/leancloud_visitors.js?v=1.2.6"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'Whre are u?';
+                clearTimeout(titleTime);
+            } else {
+                document.title = 'Hello!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+    
+</body>
+</html>

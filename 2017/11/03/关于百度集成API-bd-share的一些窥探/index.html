@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>关于百度集成API bd_share的一些窥探 | ZhangQiang&#39;s blog | Follow ur heart.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="百度share">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.2.6">
+    
+	
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":true,"app_id":"LSbj8deFCLr0XdOxT6aGGld9-gzGzoHsz","app_key":"u5T5LgryYWwkfxkw0kjSsTcJ","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"LSbj8deFCLr0XdOxT6aGGld9-gzGzoHsz","appkey":"u5T5LgryYWwkfxkw0kjSsTcJ","notify":true,"verify":false,"placeholder":"如您有其他建议，可以通过博客中的微博，QQ联系我...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"codefine","repo":"gitment","oauth":{"client_id":null,"client_secret":null},"perPage":10}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.png" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">zhangqiang</h5>
+          <a href="mailto:350037310@qq.com" title="350037310@qq.com" class="mail">
+            
+              <span>3</span>
+            
+              <span>5</span>
+            
+              <span>0</span>
+            
+              <span>0</span>
+            
+              <span>3</span>
+            
+              <span>7</span>
+            
+              <span>3</span>
+            
+              <span>1</span>
+            
+              <span>0</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://https://github.com/ZQ-jhon" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://sighttp.qq.com/authd?IDKEY=1c72f08d824e28c2b7c02e5b43e8e6a04124774470d4dcce" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://blog.csdn.net/qq_20264891" target="_blank">
+                  <i class="icon icon-lg icon-copyright"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                首页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                概览
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                笔记
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-github"></i>
+                项目
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                留言板
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>关于百度集成API bd_share的一些窥探</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.png" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">关于百度集成API bd_share的一些窥探</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-03T10:10:00.000Z" itemprop="datePublished" class="page-time">
+  2017-11-03
+</time>
+
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-关于百度集成API-bd-share的一些窥探"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">关于百度集成API bd_share的一些窥探</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-03 18:10:00" datetime="2017-11-03T10:10:00.000Z"  itemprop="datePublished">2017-11-03</time>
+
+            
+
+
+            
+	<span id="/2017/11/03/关于百度集成API-bd-share的一些窥探/" class="leancloud_visitors" data-flag-title="关于百度集成API bd_share的一些窥探" title="关于百度集成API bd_share的一些窥探">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/2017/11/03/关于百度集成API-bd-share的一些窥探/#comment">
+            <span class="valine-comment-count" data-xid="/2017/11/03/关于百度集成API-bd-share的一些窥探/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>本文初始编辑地址，源自我的CSDN博客：<a href="http://blog.csdn.net/qq_20264891/article/details/78438174" target="_blank" rel="noopener">我的CSDN博客</a></p>
+<p>  最近在做一个项目因为要用bootstrap，需要对第三方分享的图标设计两个款式，最终需求的效果如下：</p>
+<p>一、需求分析</p>
+<p>1.在PC端，要求用font字符来实现第三方分享的图标,并且鼠标经过时，设定hover效果：<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171103173452202?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure><br>2.在小屏幕设备上，需要设定另外一种款式：<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171103173511144?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure><br>二、思路分析</p>
+<p>理清需求以后，下面来看是如何实现的：</p>
+<p> 首先，需要点击这些第三方应用的图片或者字符，来实现相应的跳转，例如点击QQ，进入QQ的分享界面。</p>
+<p>  如果要完成这一步，需要去每个平台的官网获取分享组件，其实就是人家官方定义好的js API接口。整个页面如果只需要1个2个分享图标还好，要是十几个，20个图标，估计页面会乱七八糟自己看着都糟心。<br>  于是这里安利百度share，集成了大多数的第三方share API,非常的方便，省事，复制，粘贴，一气呵成，但是效果可能就不尽人意了。<br>  <img src="http://img.blog.csdn.net/20171103173650394?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>  看到这里，我以为我打开了二零零年的一张网页，真的，这图标，这32*32的icon清晰度，真的让我很难受。<br> 首先推荐一几个icon库，这些icon非常精美，并且实时更新：<br>1.阿里妈妈icon库：<br><a href="http://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.8&amp;manage_type=myicons&amp;icontype=histories&amp;keyword=" target="_blank" rel="noopener">http://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.8&amp;manage_type=myicons&amp;icontype=histories&amp;keyword=</a><br>2.Easyicon<br><a href="http://www.easyicon.net/" target="_blank" rel="noopener">http://www.easyicon.net/</a><br>在这里可以下载相应的icon，推荐下载SVG，这个格式的图片制作字体很方便。</p>
+<p>看一下百度官方的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;bdsharebuttonbox&quot;&gt;</span><br><span class="line">	&lt;a href=&quot;#&quot; class=&quot;bds_more&quot; data-cmd=&quot;more&quot;&gt;&lt;/a&gt;</span><br><span class="line">	&lt;a href=&quot;#&quot; class=&quot;bds_qzone&quot; data-cmd=&quot;qzone&quot;&gt;&lt;/a&gt;</span><br><span class="line">	&lt;a href=&quot;#&quot; class=&quot;bds_tsina&quot; data-cmd=&quot;tsina&quot;&gt;&lt;/a&gt;</span><br><span class="line">	&lt;a href=&quot;#&quot; class=&quot;bds_tqq&quot; data-cmd=&quot;tqq&quot;&gt;&lt;/a&gt;</span><br><span class="line">	&lt;a href=&quot;#&quot; class=&quot;bds_renren&quot; data-cmd=&quot;renren&quot;&gt;&lt;/a&gt;</span><br><span class="line">	&lt;a href=&quot;#&quot; class=&quot;bds_weixin&quot; data-cmd=&quot;weixin&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	window._bd_share_config = &#123;</span><br><span class="line">		&quot;common&quot;: &#123;</span><br><span class="line">			&quot;bdSnsKey&quot;: &#123;&#125;,</span><br><span class="line">			&quot;bdText&quot;: &quot;&quot;,</span><br><span class="line">			&quot;bdMini&quot;: &quot;2&quot;,</span><br><span class="line">			&quot;bdPic&quot;: &quot;&quot;,</span><br><span class="line">			&quot;bdStyle&quot;: &quot;0&quot;,</span><br><span class="line">			&quot;bdSize&quot;: &quot;16&quot;</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;share&quot;: &#123;&#125;,</span><br><span class="line">		&quot;image&quot;: &#123;</span><br><span class="line">			&quot;viewList&quot;: [&quot;qzone&quot;, &quot;tsina&quot;, &quot;tqq&quot;, &quot;renren&quot;, &quot;weixin&quot;],</span><br><span class="line">			&quot;viewText&quot;: &quot;分享到：&quot;,</span><br><span class="line">			&quot;viewSize&quot;: &quot;16&quot;</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;selectShare&quot;: &#123;</span><br><span class="line">			&quot;bdContainerClass&quot;: null,</span><br><span class="line">			&quot;bdSelectMiniList&quot;: [&quot;qzone&quot;, &quot;tsina&quot;, &quot;tqq&quot;, &quot;renren&quot;, &quot;weixin&quot;]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">	with(document) 0[(getElementsByTagName(&apos;head&apos;)[0] || body).appendChild(createElement(&apos;script&apos;)).src = &apos;http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=&apos; + ~(-new Date() / 36e5)];</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>不难发现，其实a标签的父div：bdsharebuttonbox已经提前为a标签设置好了样式和背景图了。</p>
+<p>这里我们下载好图标，能否直接插入到<code>&lt;a&gt;</code> 标签中，然后 实现对应图片的替换呢？显然不行，因为百度通过class类设定好的背景图片，不会被框架内的图片所覆盖，给大家演示一下错误的示范：<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171103174622391?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这是错误的示范" title="" class="">
+                <p>这是错误的示范</p>
+            </figure><br>不仅没有变美，反而更丑了。</p>
+<p>三、功能实现</p>
+<p>3.1 将原始图标替换为图片图标</p>
+<p>怎么办呢？其实我们应该直接设定对应class类的背景图，并且加权!important，就可以完美实现背景图的替换了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.bd_qzone&#123;background:url(./img/qq.png) !important&#125;</span><br><span class="line">.bd_tsina&#123;background:url(./img/sina.png) !important&#125;</span><br></pre></td></tr></table></figure>
+<p>这里要说明一下，百度的Share api第三方的图标，全部都是32*32的，因此如果你的图片过于清晰（分辨率太高），应该增加backgrond-size:cover !important ，来填充。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.bd_qzone&#123;background:url(./img/qq.png) !important;backgrond-size:cover !important &#125;</span><br><span class="line">.bd_tsina&#123;background:url(./img/sina.png) !important;backgrond-size:cover !important &#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样，可以实现一个比较好看的图标分享小模块了：<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171103175129123?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure><br>这里我用的图标是128*128的，即便将网页放大10倍，也没有锯齿感。</p>
+<p>3.2字符图标完成Share 功能的实现<br>   字符图标相比于图片图标，更加节省资源，而且兼容性更棒！(IE4+都支持字符图标)。<br>   我们首先去阿里妈妈或者easyicon下载好对应的透明的svg文件，接着到：</p>
+<p>  <a href="https://icomoon.io/app/#/select" target="_blank" rel="noopener">https://icomoon.io/app/#/select</a><br>  这个网站很牛逼，可以将图片转为各种浏览器看得懂的字符文件<br> (1)我们打开网站，最上方点击import Icons，上传自己的图标图片文件<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171103175717350?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure><br>(2)上传好以后， 可以按铅笔图标对文件进行编辑，比如命名，方向结构等等<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171103175907853?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述](http://img.blog.csdn.net/20171103175823318?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)![这里写图片描述" title="" class="">
+                <p>这里写图片描述](http://img.blog.csdn.net/20171103175823318?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)![这里写图片描述</p>
+            </figure><br>（3）上传好以后，点击下面的Generate Font,下载已经转换好的字体文件</p>
+<p><img src="http://img.blog.csdn.net/20171103175937926?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>（4）下载好以后解压，用记事本打开style.css的文件，复制到你的html页面中的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![这里写图片描述](http://img.blog.csdn.net/20171103180119963?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)</span><br></pre></td></tr></table></figure></p>
+<p>复制好如下：</p>
+<p><style type="text/css"><br>    @font-face {<br>  font-family: ‘icomoon’;<br>  src:  url(‘fonts/icomoon.eot?eqsiuf’);<br>  src:  url(‘fonts/icomoon.eot?eqsiuf#iefix’) format(‘embedded-opentype’),<br>    url(‘fonts/icomoon.ttf?eqsiuf’) format(‘truetype’),<br>    url(‘fonts/icomoon.woff?eqsiuf’) format(‘woff’),<br>    url(‘fonts/icomoon.svg?eqsiuf#icomoon’) format(‘svg’);<br>  font-weight: normal;<br>  font-style: normal;<br>}</p>
+<p>[class^=”icon-“], [class<em>=” icon-“] {<br>  /</em> use !important to prevent issues with browser extensions that change fonts */<br>  font-family: ‘icomoon’ !important;<br>  speak: none;<br>  font-style: normal;<br>  font-weight: normal;<br>  font-variant: normal;<br>  text-transform: none;<br>  line-height: 1;</p>
+<p>  /<em> Better Font Rendering =========== </em>/<br>  -webkit-font-smoothing: antialiased;<br>  -moz-osx-font-smoothing: grayscale;<br>}</p>
+<p>.icon-baidu:before {<br>  content: “\e900”;<br>}<br>.icon-mail:before {<br>  content: “\e901”;<br>}<br>.icon-qq:before {<br>  content: “\e902”;<br>}<br>.icon-qzone:before {<br>  content: “\e903”;<br>}<br>.icon-renren:before {<br>  content: “\e904”;<br>}<br>.icon-sina:before {<br>  content: “\e905”;<br>}<br>.icon-wechat:before {<br>  content: “\e906”;<br>}<br>.icon-copy:before {<br>  content: “\e907”;<br>}</p>
+<p></style><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 这段CSS代码最好不用通过`&lt;link&gt;`标签引入，否则会出现字符无法正常显示的问题，这个问题目前我还在找原因。</span><br><span class="line"></span><br><span class="line">现在可以看到，通过@font-face已经引入了字体文件，并且已经为你预设好了每张图片(现在他们已经变成了字符或者说字体)的类名。</span><br><span class="line">和bootstrap的glyphicon的调用方法很像，都是通过给目标对象添加类名来调用。并且通过css3的高级选择器 ，在被选择元素之前添加了content，然后是对应字符的编号，非常贴心，这个时候只需要在你想要调用的地方添加class类名即可。</span><br></pre></td></tr></table></figure></p>
+<p></p><p class="icon-qq"></p><p></p>
+<p></p><p class="icon-sina"></p><br>最终的效果如下：<br><figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171103180831126?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure><br>我通过js/jq又添加了hover效果，这个界面看上去就舒服多了。<br>今天研究了一天这个问题，从最初的不明白第三方分享的原理，到现在可以改变默认样式，我觉得今天收获还是挺多的，对CSS、JS都有了更进一步的理解。<p></p>
+<p><b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-01-19T16:37:29.657Z" itemprop="dateUpdated">2018-01-20 00:37:29</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2017/11/03/关于百度集成API-bd-share的一些窥探/" target="_blank" rel="external">http://yoursite.com/2017/11/03/关于百度集成API-bd-share的一些窥探/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.png" alt="zhangqiang">
+            zhangqiang
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/百度share/">百度share</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/03/关于百度集成API-bd-share的一些窥探/&title=《关于百度集成API bd_share的一些窥探》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/03/关于百度集成API-bd-share的一些窥探/&title=《关于百度集成API bd_share的一些窥探》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/03/关于百度集成API-bd-share的一些窥探/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于百度集成API bd_share的一些窥探》 — ZhangQiang's blog&url=http://yoursite.com/2017/11/03/关于百度集成API-bd-share的一些窥探/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/03/关于百度集成API-bd-share的一些窥探/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2017/11/06/Ajax初探/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Ajax初探</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2017/10/22/JavaScript开心消消乐中的迭代算法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JavaScript开心消消乐中的迭代算法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        支持作者更好的创作
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                zhangqiang &copy; 2018
+            </span>
+        		
+           	
+            
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/03/关于百度集成API-bd-share的一些窥探/&title=《关于百度集成API bd_share的一些窥探》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/03/关于百度集成API-bd-share的一些窥探/&title=《关于百度集成API bd_share的一些窥探》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/03/关于百度集成API-bd-share的一些窥探/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于百度集成API bd_share的一些窥探》 — ZhangQiang's blog&url=http://yoursite.com/2017/11/03/关于百度集成API-bd-share的一些窥探/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/03/关于百度集成API-bd-share的一些窥探/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACw0lEQVR42u3aQW7jMBAEwPz/01kgpwC7krtnRCcLlE6GYsssGuBMmvz4iK/Pr+v76+/X3/fv7yRPvh/DwxceHh7eaOhX1/0X3w9lNqB2PFfvwcPDwzvNy4tBsky3xeC+5CTPvLyPh4eH96O8nJ1/9n4k+Wfx8PDw/i/efZvbLu5Jg46Hh4f3G3jJP//tgp7j2+k4krXg4eHhxbzZBtjPvj6+v4eHh4c32mpqF9z9Qp+UmWK0eHh4eAd4ySGqZL1tt7I2zXf+HDw8PLwTvDZ6yIPafbu82Qy7rHt4eHh4D/HyxyWLdV4M2knJY1w8PDy8c7wkHk1ihTxBbSOMFvyPseHh4eE9yiuOLpWtdlsSZgcCojMReHh4eI/yNoVhEz3sDzEUhQoPDw/vUV57XGDzztm05ocVhoeu8PDw8Ea8zRK8CX/zScmfc5lS4+Hh4R3jPdUQ30eueVlqx4OHh4f3Ht4mWm2b8n2IXJQrPDw8vMO8fECbo1FJM53DXnwXHh4e3jFeDsiD4HboyZ26+cbDw8M7wGtJswV6NkHtpy6nEg8PD+8wr25by6W/LTx5W385NXh4eHjHeLPDUm3ckLfOeVP+IgLGw8PDe5TXBqxt2LoJhfNDYB+bL8DDw8MrefnCnYenswb62bYbDw8P7zQv375qY4tNBLzZZnuRteDh4eEteHmU0N6fbac9tfWFh4eH907eLKKdFZJnA188PDy89/DaqDQfYltUZlNZhxd4eHh4a95neeXB66bV3hxTiOoeHh4e3oK32R5rt8pmG11tTPzY7h8eHh5e3EbPjgXMDldtyk/xW+Hh4eEd4yXL/azmzAKOfduNh4eH9xt4eRPcttSzQCGKffHw8PB+AS8fRBvvziKPF8/Bw8PDO8abhRGzhjspJ+222eV78PDw8A7w2ix0FtrO/tr+AA/s7+Hh4eHdjeoP1QW7YBqFWH8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.2.6"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.2.6"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.2.6"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.2.6"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/js/plugins/valine.js?v=1.2.6"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/js/plugins/leancloud_visitors.js?v=1.2.6"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'Whre are u?';
+                clearTimeout(titleTime);
+            } else {
+                document.title = 'Hello!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+    
+</body>
+</html>
