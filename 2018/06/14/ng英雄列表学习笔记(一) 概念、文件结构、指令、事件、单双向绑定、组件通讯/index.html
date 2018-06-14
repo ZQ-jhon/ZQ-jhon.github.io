@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯 | ZhangQiang&#39;s blog | Follow ur heart.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="angular">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.2.6">
+    
+	
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":true,"app_id":"LSbj8deFCLr0XdOxT6aGGld9-gzGzoHsz","app_key":"u5T5LgryYWwkfxkw0kjSsTcJ","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"LSbj8deFCLr0XdOxT6aGGld9-gzGzoHsz","appkey":"u5T5LgryYWwkfxkw0kjSsTcJ","notify":true,"verify":false,"placeholder":"如您有其他建议，可以通过博客中的微博，QQ联系我...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"codefine","repo":"gitment","oauth":{"client_id":null,"client_secret":null},"perPage":10}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.png" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">zhangqiang</h5>
+          <a href="mailto:350037310@qq.com" title="350037310@qq.com" class="mail">
+            
+              <span>3</span>
+            
+              <span>5</span>
+            
+              <span>0</span>
+            
+              <span>0</span>
+            
+              <span>3</span>
+            
+              <span>7</span>
+            
+              <span>3</span>
+            
+              <span>1</span>
+            
+              <span>0</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://https://github.com/ZQ-jhon" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://sighttp.qq.com/authd?IDKEY=1c72f08d824e28c2b7c02e5b43e8e6a04124774470d4dcce" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://blog.csdn.net/qq_20264891" target="_blank">
+                  <i class="icon icon-lg icon-copyright"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                首页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                概览
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                笔记
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-github"></i>
+                项目
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                留言板
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.png" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-14T15:53:27.723Z" itemprop="datePublished" class="page-time">
+  2018-06-14
+</time>
+
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-14 23:53:27" datetime="2018-06-14T15:53:27.723Z"  itemprop="datePublished">2018-06-14</time>
+
+            
+
+
+            
+	<span id="/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/" class="leancloud_visitors" data-flag-title="ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯" title="ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/#comment">
+            <span class="valine-comment-count" data-xid="/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>本文初始编辑地址，源自我的CSDN博客：<a href="https://blog.csdn.net/qq_20264891/article/details/80698441" target="_blank" rel="noopener">我的CSDN博客</a></p>
+<h2 id="为什么要学angualr-4-0-？"><a href="#为什么要学angualr-4-0-？" class="headerlink" title="为什么要学angualr(4.0+)？"></a>为什么要学angualr(4.0+)？</h2><ol>
+<li>无论是轮子也好、库也好、框架也好，很大一部分初衷就是为了改善开发体验，提升开发效率，并且让代码更加优美，易于维护。从而节省出时间，将开发人员从繁忙的业务中解放。</li>
+<li>微软收购了github，还不赶紧学ts？</li>
+</ol>
+<h2 id="本文参考博客-资料："><a href="#本文参考博客-资料：" class="headerlink" title="本文参考博客/资料："></a>本文参考博客/资料：</h2><p>1.<a href="https://blog.csdn.net/u012967849/article/details/78767294/" target="_blank" rel="noopener">https://blog.csdn.net/u012967849/article/details/78767294/</a> （ng父子组件如何传值）<br>2.<a href="https://www.angular.cn/" target="_blank" rel="noopener">https://www.angular.cn/</a> （ng中文官网）<br>3.<a href="https://www.jianshu.com/p/a2b625a99c8d" target="_blank" rel="noopener">https://www.jianshu.com/p/a2b625a99c8d</a> （ng的class和interface区别）</p>
+<h2 id="本篇笔记所用环境及NG版本一览："><a href="#本篇笔记所用环境及NG版本一览：" class="headerlink" title="本篇笔记所用环境及NG版本一览："></a>本篇笔记所用环境及NG版本一览：</h2><figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180614211344486?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="NG版本" title="" class="">
+                <p>NG版本</p>
+            </figure>
+<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p><strong>1.组件的文件形式/结构：</strong><br>形如：<figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180614211811858?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="components" title="" class="">
+                <p>components</p>
+            </figure><br>跟单文件的.vue不一样，文件目录比较多，但是也易于查询和解耦。<br><strong>2.打包入口：</strong><br> app.moudle.ts为主要入口，负责装载所有的组件，以及声明一些第三方依赖的库。<br><figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180614211620198?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="moudle" title="" class="">
+                <p>moudle</p>
+            </figure><br>如图：<br>在头部 import 声明了所有组件及依赖的原生组件(from @angular/core)。<br>在@NgMoudle中，import则声明了使用的第三方库。<br>在 declarations 中注册了子组件。<br><strong>app目录不仅作为整个项目的打包入口，其本身也是一个根组件</strong>。<br><strong>3.模块划分：</strong></p>
+<ol>
+<li>根组件/模块 appMoudle</li>
+<li>英雄列表 =&gt; heroes 组件</li>
+<li><p>当前选择的英雄=&gt; hero-detail组件</p>
+<h2 id="新的ng语法"><a href="#新的ng语法" class="headerlink" title="新的ng语法"></a>新的ng语法</h2><p>ng新语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*代表ng指令  不用ng-if,ng-for，类似于驼峰 ngFor ngIf </span><br><span class="line">()代表绑定事件   原生事件绑定直接写在括号里 (click) (keydown)</span><br><span class="line">[]单向绑定  代表绑定属性   [name] = &apos;jobs&apos; </span><br><span class="line">[()] 双向绑定&lt;input [(value=&quot;someValue&quot;)] type=&quot;text&quot;/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><em>官方称双向绑定写法叫盒子里的香蕉？？？？？？？</em></p>
+<h2 id="父子组件状态传递"><a href="#父子组件状态传递" class="headerlink" title="父子组件状态传递"></a>父子组件状态传递</h2><p>Step1: 父组件想要引用子组件时，不需要在ts逻辑中引用，因为本身没有像Vue那样，有 components:[ ] 这样的选项。<br>Step2: 父组件中引用子组件的模版，并且单向绑定一个hero属性，这个属性来源于父组件的一个变量值。<br>Step2如图所示：<br><figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180614212726956?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Step2" title="" class="">
+                <p>Step2</p>
+            </figure><br>Step3: 在子组件中，通过@Input来申请接收从 父组件中传递过来的属性。直接通过@Input() varitible 来声明/初始化即可。<br>Step3如图所示：<br><figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180614213345167?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Step3" title="" class="">
+                <p>Step3</p>
+            </figure></p>
+<p>在Vue中，通常是这样做的：<br>子组件声明一个props数组，来表明接收了哪几个值，然后为己所用。<br>angular其实也是同理，子组件通过标签来单向绑定一个属性，并且在逻辑文件中申请接收/初始化这个属性。</p>
+<h2 id="组件-运作-执行流程-的文字描述"><a href="#组件-运作-执行流程-的文字描述" class="headerlink" title="组件 运作/执行流程 的文字描述"></a>组件 运作/执行流程 的文字描述</h2><ul>
+<li>列表组件渲染出Mock的数组 (列表组件 heroes 负责)</li>
+<li>为每一个渲染出的项，绑定事件，并传参 (同上)</li>
+<li>在列表组件heroes 的模版加入<code>&lt;app-hero-detail [hero]=&quot;selectedHero&quot;&gt;&lt;/app-hero-detail&gt;</code>，这样父组件的值已经通过单向绑定至子组件，<strong>但接收与使用，决定权在于子组件</strong>。（同上）</li>
+<li>hero-detail组件接收父组件传递过来的数值，并在内部<code>import {Input} from &#39;@angular/core&#39;</code>（hero-detail组件负责）</li>
+<li>接着在export语句中，使用装饰器来声明+初始化 得到的属性<code>@Input() hero: Hero;</code>然后就可以用啦！  （hero-detail组件负责）</li>
+</ul>
+<h2 id="整体逻辑代码-步骤"><a href="#整体逻辑代码-步骤" class="headerlink" title="整体逻辑代码 步骤"></a>整体逻辑代码 步骤</h2><p><strong>Step 1</strong><br>创建列表组件，使用<code>*ngFor</code>来渲染出组件，并且每个组件绑定一个点击事件，传递的值为当前循环的每一个currentValue。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;li </span><br><span class="line">    *ngFor=&quot;let thisHero of heroes&quot; </span><br><span class="line">    (click)=&quot;onSelect(thisHero)&quot;</span><br><span class="line">&gt;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<p>在对应的.ts文件中，这个方法为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//方法</span><br><span class="line"></span><br><span class="line"> /*定义参数类型为Hero类型，即从hero.ts导出的类：</span><br><span class="line">   export class Hero &#123;</span><br><span class="line">    id: number;</span><br><span class="line">    name: string;</span><br><span class="line">  &#125;</span><br><span class="line">  并且，设定该方法没有返回值。</span><br><span class="line">  */</span><br><span class="line">onSelect(hero: Hero): void &#123;</span><br><span class="line"></span><br><span class="line">  //动态赋值</span><br><span class="line">  this.selectedHero = hero; </span><br><span class="line">  </span><br><span class="line"> //业务逻辑相关</span><br><span class="line">  this.bool = !this.bool;</span><br><span class="line">  this.isSelected =  &#123;</span><br><span class="line">		   &apos;badge&apos;:!this.bool,</span><br><span class="line">			&apos;selected&apos;:this.bool</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，每个循环出的item，在点击的时候，会把自己的值传递给该方法，从而进行后续业务逻辑处理。<br><strong>Step 2</strong><br>在列表渲染组件（父组件）中，引入子组件模版，并且通过单向绑定传值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;app-hero-detail [hero]=&quot;selectedHero&quot;&gt;&lt;/app-hero-detail&gt;</span><br></pre></td></tr></table></figure></p>
+<p>把值绑定到子组件模版，这样，父组件的使命就结束了。<br><strong>Step 3</strong><br>子组件如何接收并使用父组件传来的值呢？<br>首先，引入内置的接收装饰器模型（不知道这种叫法是否严谨）<br><code>import {Input} from &#39;@angular/core&#39;</code><br>接着，装饰器来申请接收传进来值，声明+初始化二连：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Input() hero: Hero;</span><br></pre></td></tr></table></figure></p>
+<p>哦，完事了。</p>
+<p>此时，这个hero相当于一个变量，存在于子组件中，并且，通过单向绑定，动态的与父组件同步。</p>
+<p><b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-06-14T15:56:56.425Z" itemprop="dateUpdated">2018-06-14 23:56:56</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/" target="_blank" rel="external">http://yoursite.com/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.png" alt="zhangqiang">
+            zhangqiang
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/&title=《ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/&title=《ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯》 — ZhangQiang's blog&url=http://yoursite.com/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/2018/05/23/谈一谈来北京的工作节奏以及对前端的看法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">谈一谈来北京后的工作节奏以及对前端的看法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么要学angualr-4-0-？"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么要学angualr(4.0+)？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#本文参考博客-资料："><span class="post-toc-number">2.</span> <span class="post-toc-text">本文参考博客/资料：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#本篇笔记所用环境及NG版本一览："><span class="post-toc-number">3.</span> <span class="post-toc-text">本篇笔记所用环境及NG版本一览：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件目录"><span class="post-toc-number">4.</span> <span class="post-toc-text">文件目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新的ng语法"><span class="post-toc-number">5.</span> <span class="post-toc-text">新的ng语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#父子组件状态传递"><span class="post-toc-number">6.</span> <span class="post-toc-text">父子组件状态传递</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件-运作-执行流程-的文字描述"><span class="post-toc-number">7.</span> <span class="post-toc-text">组件 运作/执行流程 的文字描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#整体逻辑代码-步骤"><span class="post-toc-number">8.</span> <span class="post-toc-text">整体逻辑代码 步骤</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        支持作者更好的创作
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                zhangqiang &copy; 2018
+            </span>
+        		
+           	
+            
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/&title=《ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/&title=《ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯》 — ZhangQiang's blog&url=http://yoursite.com/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAElUlEQVR42u3aS47bSBAFwL7/pTXAbA1R72WyAZY6uDJskSxGGaj8/fzE1+v/a/P7d094/XNd/ya/6/ren9+4MGHChAnTI5lel9e7l/37yuQJydMSjld8XW9hcS8mTJgwYTqcqX3c5rhNgGb3zrY2CoAwYcKECdMfYJoFEO0xn2/YZrMxYcKECROma6bNkfwbheY2PcaECRMmTH+Naf+4hC8PMpKPvzd1v60WjgkTJkyYHsbUHsbf9OdfnG/ChAkTJkwPYHqV14wyaVtuDuNZAFF8NSZMmDBhOpbp3ubirKm5od8k7XmxGBMmTJgwncs0e3GeIV6/JW9S5s3RpLBbhxGYMGHChOlYpnsXfb2Uduktcd4unbFiwoQJE6YTmWZHbFs83XcG2yQ5D1CibcCECRMmTMcy5YflrFk4O4w3SXjeRq0bqJgwYcKE6UCm2eKuH50HAbNi8azsm4Q1bzcSEyZMmDAdyzQLEXKgFnE2rNMm1W0qjgkTJkyYvoNp//Gbgm+bis+25Ia3YMKECROmw5nadHeWAOejPzPWTWk4CggwYcKECdMhTHcVSTd35U+YbeemSI0JEyZMmL6Pqbg5Hr5JDt282JoPACUBwXCyCRMmTJgwHcKUH5D7RSctyTY1zb+r3YAPtQFMmDBhwnQI075o247atO3GzencrqeeNsKECRMmTI9napfbjtrk7cY2+Lg3EBmGBZgwYcKE6fFMbQq6DwXaY7gtKM+Cjw+/wYQJEyZMX8GUtAZnjcC8NJy8q13PBjQa3MGECRMmTA9mak+9ZOmbwmv753ZMpw0yhsEBJkyYMGF6DNPs4/cjrW3Z965Wax4QFIM7mDBhwoTpwUyzQZbNATxLm/NnDodyZqVeTJgwYcJ0FFPO15Zi2xLtfhvy9LhI4DFhwoQJ07FMyeJmpdu70tp2PGiTlhcJMCZMmDBhejxTkkDmJdHhERsP2czGbvJNevt7TJgwYcL0RUybsu8NhdTR22cJ8yogwIQJEyZMRzG1YzRJkjkrHLdty/bv2xQaEyZMmDCdzpQXZGftw3zIpq5Jx6lykhi378WECRMmTKcw5QXc2YhMS7kZFWrXkxd8MWHChAnTNzHl5dfZL9sENS/+7tPvt/diwoQJE6bDmdphmmTYJS8Eb0KBPLy4Pv6HXV9MmDBhwvR4pnZQpk2P849JDvXfo4+CCUyYMGHCdCxT0hrcDNBsKKOlx2+JSrrX/3UwYcKECdNRTDnK7EhODvWcYLMZ+bs+FHkxYcKECdOxTG0JtV3ub6S4+VhPvv1vy7uYMGHChOlApnbgZnZgt2FHe83KuPnTMGHChAnTuUyv8mrLsrOgYZOQz1qemDBhwoTpW5lmh+5mNCd/Zhu43PVeTJgwYcL0fUyzIKBtGbbjO/naNg3X4l8xYcKECdPhTLOUMvmATSSyLwpv7sKECRMmTH+NaQa6T1b3rdZZWTnyxoQJEyZMX8o0a3MmT5g1TfM26jDgwIQJEyZMhzO1B/bs98ln5MQfktUyXPjwFkyYMGHCdCzTbHBn1v5sA5GWtW5S3lSMxoQJEyZMj2T6D8IgqjuqpSC3AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.2.6"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.2.6"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.2.6"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.2.6"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/js/plugins/valine.js?v=1.2.6"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/js/plugins/leancloud_visitors.js?v=1.2.6"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'Whre are u?';
+                clearTimeout(titleTime);
+            } else {
+                document.title = 'Hello!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+    
+</body>
+</html>
