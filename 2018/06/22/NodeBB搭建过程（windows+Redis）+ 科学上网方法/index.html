@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     
     
-    <title>关于CSS3呼吸效果的探究 | ZhangQiang&#39;s blog | Follow ur heart.</title>
+    <title>NodeBB搭建过程（windows+Redis）+ 科学上网方法 | ZhangQiang&#39;s blog | Follow ur heart.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="css3">
+    <meta name="keywords" content="node,javascript">
     <link rel="shortcut icon" href="/img/favicon.png">
     <link rel="stylesheet" href="/css/style.css?v=1.2.6">
     
@@ -163,7 +163,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>关于CSS3呼吸效果的探究</span>
+            <span>NodeBB搭建过程（windows+Redis）+ 科学上网方法</span>
             
         </div>
         
@@ -176,11 +176,11 @@
 <header class="content-header post-header">
     <img src="/img/banner.png" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">关于CSS3呼吸效果的探究</h1>
+        <h1 class="title">NodeBB搭建过程（windows+Redis）+ 科学上网方法</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-01-17T03:18:00.000Z" itemprop="datePublished" class="page-time">
-  2018-01-17
+                <time datetime="2018-06-22T02:04:36.000Z" itemprop="datePublished" class="page-time">
+  2018-06-22
 </time>
 
 
@@ -207,18 +207,18 @@
 
 
 <div class="container body-wrap">
-    <article id="post-关于CSS3呼吸效果的探究"
+    <article id="post-NodeBB搭建过程（windows+Redis）+ 科学上网方法"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">关于CSS3呼吸效果的探究</h1>
+        <h1 class="post-card-title">NodeBB搭建过程（windows+Redis）+ 科学上网方法</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-01-17 11:18:00" datetime="2018-01-17T03:18:00.000Z"  itemprop="datePublished">2018-01-17</time>
+            <time class="post-time" title="2018-06-22 10:04:36" datetime="2018-06-22T02:04:36.000Z"  itemprop="datePublished">2018-06-22</time>
 
             
 
 
             
-	<span id="/2018/01/17/关于CSS3呼吸效果的探究/" class="leancloud_visitors" data-flag-title="关于CSS3呼吸效果的探究" title="关于CSS3呼吸效果的探究">
+	<span id="/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/" class="leancloud_visitors" data-flag-title="NodeBB搭建过程（windows+Redis）+ 科学上网方法" title="NodeBB搭建过程（windows+Redis）+ 科学上网方法">
 		
 			<i class="icon icon-eye"></i>
 		
@@ -229,8 +229,8 @@
             
     <span class="leancloud-comment">
         <i class="icon icon-comment-o"></i>
-        <a href="/2018/01/17/关于CSS3呼吸效果的探究/#comment">
-            <span class="valine-comment-count" data-xid="/2018/01/17/关于CSS3呼吸效果的探究/"></span>
+        <a href="/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/#comment">
+            <span class="valine-comment-count" data-xid="/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/"></span>
         </a>
     </span>
 
@@ -239,28 +239,37 @@
             
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>本文初始编辑地址，源自我的CSDN博客：<a href="http://blog.csdn.net/qq_20264891/article/details/78949964" target="_blank" rel="noopener">我的CSDN博客</a></p>
-<h2 id="一、效果预览"><a href="#一、效果预览" class="headerlink" title="一、效果预览"></a>一、效果预览</h2><figure class="image-box">
-                <img src="http://img.blog.csdn.net/20180102103428658?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
-                <p>这里写图片描述</p>
-            </figure>
-<p>如图所示，鼠标移动上去，图片会向右上角抖动，鼠标离开，图片恢复原状。</p>
-<h2 id="二、方案选择"><a href="#二、方案选择" class="headerlink" title="二、方案选择"></a>二、方案选择</h2><p>刚刚接触到这个效果的时候，我还以为是采用放大效果来实现的，即scale:1.2诸如此类的代码，结果不然。</p>
-<p>这个效果的实现，如果采用jquery的方案，直接写个动画即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//先设定好position:relative;</span><br><span class="line">$(&apos;img:hover&apos;).animate(&#123;&apos;left&apos;:&apos;10px&apos;,&apos;bottom&apos;:&apos;10px&apos;&#125;);</span><br></pre></td></tr></table></figure>
-<p>假如追根溯源，还是使用的CSS3的动画。<br>首先自定义一个动画：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@keyframes testAnimate&#123;</span><br><span class="line"></span><br><span class="line">from&#123;position: relative;bottom: 0;left: 0;&#125;</span><br><span class="line"></span><br><span class="line">to&#123;position: relative;bottom: 20px;left: 30px;border: 5px solid #999;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个动画定义了一个名为：testAnimate的位置过渡动画，从相对位置(0,0)，变到相对位置 (30px,20px)，且终态时，增加了一个5px的边框。</p>
-<p>接着，我们在测试的图片用例上来引入动画：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">img:hover&#123;</span><br><span class="line">animation:testAnimate 1s;</span><br><span class="line">-webkit-animation:testAnimate  1s;</span><br><span class="line">-moz-animation:testAnimate  1s;</span><br><span class="line">-o-animation:testAnimate  1s;</span><br><span class="line">-ms-animation:testAnimate 1s;</span><br><span class="line">&#125;</span><br><span class="line">//整个动画1s完成，并设置了浏览器兼容</span><br></pre></td></tr></table></figure>
-<p>效果如下：<br><figure class="image-box">
-                <img src="http://img.blog.csdn.net/20180102110628693?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
-                <p>这里写图片描述</p>
-            </figure><br>可能在网页上显示的不尽人意，这里面存在一个问题，当鼠标移入图片，并且悬停不动时，图片会自动回复到动画之前的状态，这就感觉像拖动一个东西，拖到一半，东西自己滑走了，好在CSS3里面有了现成的解决方案：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">img:hover&#123;</span><br><span class="line">animation-fill-mode: forwards;</span><br><span class="line">-ms-animation-fill-mode:forwards;//兼容IE  xxxxxx  </span><br><span class="line">-webkit-animation-fill-mode:forwards;//兼容Chrome xxxxxx</span><br><span class="line">-moz-animation-fill-mode:forwards;//兼容FireFox xxxxx</span><br><span class="line">-o-animation-fill-mode:forwards;//兼容opear xxxxxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样，当鼠标移入，只要不松开，图片就会停留在动画的100%状态，而不会回滚到动画为0%的状态；当鼠标移出图片，动画结束，方回到初始状态。</p>
-<h2 id="三、分析归纳"><a href="#三、分析归纳" class="headerlink" title="三、分析归纳"></a>三、分析归纳</h2><p>众所周知，jquery封装的js库，其中的动画部分来源于CSS3，作为原生的CSS，其功能不可小觑，而且相当于jquery的实现方法，这种方法定义起来更加的个性化，而且不用引入额外的js库，很省带宽。但缺点就是兼容性差，比起第三方封装的Animation.js库，兼容性不行</p>
-<p>预览效果参见：news.lanzhou.cn/system/2017/12/29/011485365.shtml 其中的【微说图解】栏目。</p>
+            <p>本文初始编辑地址，源自我的CSDN博客：<a href="https://blog.csdn.net/qq_20264891/article/details/80769624" target="_blank" rel="noopener">我的CSDN博客</a></p>
+<h2 id="1-首先去-github-把项目-clone-下来："><a href="#1-首先去-github-把项目-clone-下来：" class="headerlink" title="1.首先去 github 把项目 clone 下来："></a>1.首先去 github 把项目 clone 下来：</h2><p><a href="https://github.com/NodeBB/NodeBB" target="_blank" rel="noopener">https://github.com/NodeBB/NodeBB</a></p>
+<p>然后cd到nodebb，安装依赖 cnpm i</p>
+<p>依赖在安装的时候，由于没有 package.json ，会自动 clone ，整个以来安装完成后，应该是这样：<br><figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180622095626833?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="install" title="" class="">
+                <p>install</p>
+            </figure></p>
+<h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2.环境配置"></a>2.环境配置</h2><p>附上中文文档：<a href="https://docs.nodebb-cn.org/" target="_blank" rel="noopener">https://docs.nodebb-cn.org/</a></p>
+<p>1.Chocolatey 可以下载<strong>离线包</strong>，之后通过 Chocolatey 安装一些环境：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install -y imagemagick github python2 nodejs-lts git</span><br></pre></td></tr></table></figure>
+<p>这里的 github , nodejs ，git 可以选择不安装，跳过。<br>2.数据库（database）选择 Redis<br>Redis 可以在菜鸟教程上面找到安装教程：<br><a href="http://www.runoob.com/redis/redis-install.html" target="_blank" rel="noopener">http://www.runoob.com/redis/redis-install.html</a></p>
+<p>安装完成以后，WINDOWS + R 打开 services.msc ，找到 Redis 服务，启动之：<br><figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180622095820272?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Redis" title="" class="">
+                <p>Redis</p>
+            </figure></p>
+<h2 id="3-Hello-World-Running"><a href="#3-Hello-World-Running" class="headerlink" title="3.Hello World Running"></a>3.Hello World Running</h2><p>首先，使用命令 ./nodebb build 构建静态资源，构建完如下：<br><figure class="image-box">
+                <img src="https://img-blog.csdn.net/2018062210001911?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="helloworld" title="" class="">
+                <p>helloworld</p>
+            </figure></p>
+<p>此时打开监听的 127.0.0.1:4567 (默认配置的端口)，如图所示：<br><figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180622100114522?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="installer" title="" class="">
+                <p>installer</p>
+            </figure></p>
+<p>上面的直接填写，下面的数据库配置如下：<br><figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180622100206278?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="database" title="" class="">
+                <p>database</p>
+            </figure><br>点击最下面的 install NodeBB 后，整个项目总算 Running 了：<br><figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180622100409227?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="running" title="" class="">
+                <p>running</p>
+            </figure></p>
+<h2 id="4-use-LANTERN-to-cross-wall-使用lantern-科学上网"><a href="#4-use-LANTERN-to-cross-wall-使用lantern-科学上网" class="headerlink" title="4 . use LANTERN to cross wall (使用lantern 科学上网)"></a>4 . use LANTERN to cross wall (使用lantern 科学上网)</h2><p>下载lantern安装包 =&gt; 一路next安装，并启动 =&gt; 右下角图标右键 ，连接 =&gt; OK<br>依赖环境 .net FrameWork 4.0 +<br>我都打包好了 :<br>链接：<a href="https://pan.baidu.com/s/1-aMsEznQ76Tjd5vrfEwrow" target="_blank" rel="noopener">https://pan.baidu.com/s/1-aMsEznQ76Tjd5vrfEwrow</a> 密码：yyfg</p>
 <p><b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b></p>
 
         </div>
@@ -269,12 +278,12 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-01-19T06:57:55.004Z" itemprop="dateUpdated">2018-01-19 14:57:55</time>
+    Last updated: <time datetime="2018-06-27T14:13:11.506Z" itemprop="dateUpdated">2018-06-27 22:13:11</time>
 </span><br>
 
 
         
-        转载注明出处，原文地址：<a href="/2018/01/17/关于CSS3呼吸效果的探究/" target="_blank" rel="external">http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/</a>
+        转载注明出处，原文地址：<a href="/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/" target="_blank" rel="external">http://yoursite.com/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/</a>
         
     </div>
     <footer>
@@ -294,7 +303,7 @@
         
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
 
             <div class="page-share-wrap">
     
@@ -303,7 +312,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&title=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/&title=《NodeBB搭建过程（windows+Redis）+ 科学上网方法》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -315,25 +324,25 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&title=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/&title=《NodeBB搭建过程（windows+Redis）+ 科学上网方法》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NodeBB搭建过程（windows+Redis）+ 科学上网方法》 — ZhangQiang's blog&url=http://yoursite.com/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -358,21 +367,14 @@
         
     </div>
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="prev">
-      <a href="/2018/01/18/基于HEXO的个人博客图文搭建详尽过程，看不懂算我输/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">基于HEXO的个人博客图文搭建详尽过程，看不懂算我输</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="next">
-      <a href="/2018/01/17/Angular搭建后台人员管理系统-1-1-0/" id="post-next" class="post-nav-link">
+      <a href="/2018/06/14/ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单双向绑定、组件通讯/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Angular搭建后台人员管理系统 1.1.0</h4>
+        <h4 class="title">ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯</h4>
       </a>
     </div>
   
@@ -384,7 +386,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、效果预览"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、效果预览</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、方案选择"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、方案选择</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、分析归纳"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、分析归纳</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-首先去-github-把项目-clone-下来："><span class="post-toc-number">1.</span> <span class="post-toc-text">1.首先去 github 把项目 clone 下来：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-环境配置"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.环境配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Hello-World-Running"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.Hello World Running</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-use-LANTERN-to-cross-wall-使用lantern-科学上网"><span class="post-toc-number">4.</span> <span class="post-toc-text">4 . use LANTERN to cross wall (使用lantern 科学上网)</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
@@ -447,7 +449,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&title=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/&title=《NodeBB搭建过程（windows+Redis）+ 科学上网方法》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -459,25 +461,25 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&title=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/&title=《NodeBB搭建过程（windows+Redis）+ 科学上网方法》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NodeBB搭建过程（windows+Redis）+ 科学上网方法》 — ZhangQiang's blog&url=http://yoursite.com/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -489,7 +491,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvklEQVR42u3awW7bQAwEUP//T6fXAq3tGXI3ToCnU+FIst4W0NJDPh7x8fXP8ffnyVX5J6/v9rhx4OHh4a0fPWHkVyVnPmPM7oyHh4f3Pbz8a16Dk/M3S5k/Mx4eHt5P4z07Jy/B24IbDw8P7zfykniiDRFeL1n+PHh4eHjfz8tjhWRLyCPdfMmuZy14eHh4XXYadZF+zr+v9Pfw8PDw1l31tmXVDgTk0cPsafHw8PBu8NqXct7Cb0vhDf5NsY6Hh4d3lJfcetMeawv0dvTqzV/x8PDwLvNmI1N5Q+tU5FrcAQ8PD+8ab/jajZtbpxarvgoPDw/vAq99xH1JnQS7OaDYWvDw8PAO8V5vA3lBXGTGo+8dxsF4eHh4F3hnX9n51pJj8qWJSmo8PDy8o7wNpt1I8rJ+/2MADw8P7ywvd+cjUKcK8baMxsPDw/sUrx14ajeJdixgtqCPzZrh4eHhBfVq3vRqz9kEHO21w8kyPDw8vJLXFsT7sjt/6E1UEZXUeHh4eGteUljvQ942ik1K+afn4+Hh4V3mJW345MwkSkii3tlo15usBQ8PD2/Ny0OH/Dd+Hrnmo1oH/g/x8PDwDvFmza32Fd/C2quGvxjw8PDwFrx8CCApu/fFdxtbFDseHh4e3iFe/vWzsac25E0+eZxaCTw8PLzRkYwF1M2noDRP8Js8Fg8PD+8Grw0g2qvaInuzdf3nPnh4eHgXeG+a7qOyOIl382+Z/TCIIgk8PDy8Ee+rPPYlch5ktBFGNDqAh4eHt+bNXr77sYAckxTlm3YaHh4e3ozXjlVtMPkLPblntG3g4eHhXeO1jbFkIfLNYNi7S8poPDw8vI/yNk399kGTrSIKKfDw8PA+ytsMHOTLl2Pw8PDwPss7G0bMhqvyJStGEPDw8PAu8PIGWF5wt+2uJPKYlel4eHh4R3l/AO3P+T52htSWAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADK0lEQVR42u3aMZLbMBAEwPv/p+XEgQMbmllQZRFsRiqdKKKhYG538fMTX68/rtnn//U6eWf93HxV9YWNjY19E/Zrea0ZybVmJNuRrCS3YGNjY5/KXgdDvrh11OVRlDwljzpsbGxs7GS5SfjlEZVQ1/diY2NjYydL2VlES52FKzY2NvZz2G1LKBkYXDtU+G+9NGxsbOyvZ+cL+v7XH5lvY2NjY38x+1Ve+V2zIzV5+2k2cv59FzY2NvZB7HxZbYt/VngkzaBZmYGNjY19Knvd9N95zE5hkwTVbLyBjY2NfR67bcG3zfdPjBxmR4jqbMTGxsa+CTsJg2Ts2n5+FkV51L15IjY2NvZx7OSgTN4SWhcA+VOSUiRf+V+KEGxsbOwj2Puw/UFCG0JDzP7UAhsbG/uL2bMmTnuApi1m2jKm/k5sbGzsg9htjCXxU7R4SvAsRLGxsbHPZudNn1m0zAa67ca1TTFsbGzsk9izYWreHpq1imZ5W7eZsLGxsW/OboemOfKqIGw/E60fGxsb+yD2TiHRjhbaoW/ePGrfwcbGxj6JvX84Mm/Nz6KrvaINxcbGxj6UPWsn5VvTFiTts4qGFDY2NvZB7LYs2Skk8too+QHa4cQbETY2NvZt2e04dtb6nw0edtbw5kfCxsbGPojd3jY8DVSODdZPnI0xhqd7sLGxsW/CzgelyVLyz+dFyBCz88tjY2Nj34qd/3OfwGbt/p3DOhf0z7CxsbFvy95vtV/F3krdclOwsbGxT2LPWjzJCDYfM1xVxiRbHxUk2NjY2Ddk74xRZ+F3VUTNSiNsbGzsU9ltm6k9ajl7Yh6N9aZjY2NjP4A9a77nbaO28GiHCtGQABsbG/s4dl54zBadh1Nb0tRjBmxsbOwj2K/ymh3i2Ymuti21NRjAxsbGviF7J/fykiDfgqvKlXxV2NjY2Gew2wM0s7KkxedRmvwVGxsb+wnsNjz2j/W039Ym8JtNx8bGxn48uw2epMUzHNnO7sXGxsbGjofB7aGfpLnfBhg2Njb2E9ht8Mwwn2hXDVta2NjY2Aex80FvstD8uMzsME1e2LRhiY2NjX1D9i8Mz3y4yS2NkQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

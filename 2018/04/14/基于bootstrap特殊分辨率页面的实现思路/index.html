@@ -240,27 +240,24 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>本文初始编辑地址，源自我的CSDN博客：<a href="https://blog.csdn.net/qq_20264891/article/details/79945485" target="_blank" rel="noopener">我的CSDN博客</a></p>
-<h2 id="一、效果预览"><a href="#一、效果预览" class="headerlink" title="一、效果预览"></a>一、效果预览</h2><figure class="image-box">
-                <img src="http://img.blog.csdn.net/20180102103428658?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很久没更新博客，这段时间刚刚找到工作，会立即（从今天起）恢复更新博客的频率。罗马不是一天建成的，希望自己保持良好的学习和做笔记的习惯，笔耕不缀，他日可期！</p>
+<h2 id="1-Boostrap重构传统固定px的页面"><a href="#1-Boostrap重构传统固定px的页面" class="headerlink" title="1.Boostrap重构传统固定px的页面"></a>1.Boostrap重构传统固定px的页面</h2><p>在第一次接手重构任务后，有点懵逼。可能是因为自己很久没有写代码了，忘了以前做的响应式的一些细节，所以又开始不断的调试，总算是把坑补上了，于是在此做一下记录。<br>PSD需求图：<br><figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180414231532595?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure>整个需求其实蛮简单的，就是一个固定1122px的页面，里面有些图片，图片在pc端需要留出固定margin（需要像素级还原PSD稿）。想了想，自己以前做的响应式都是根据 .container类的默认宽度来写的，于是想了一会便有答案，整体思路如下：</p>
+<ol>
+<li>给整个页面给一个 container类，并且限制 max-width 为1122px。</li>
+<li>页面中右侧的小兔，因为所有图片都是从后台接口调取，一旦设定img-responsive，那么默认的max-width就是100%(想象一下，如果后台传来一个1000宽的图，用户网络慢点，基本上就GG了)，只能按照原图比例来缩放，何况每个图片的容器都是动态高度的…所以，每张图片的宽高，尽可能的去用js动态设定。</li>
+<li>尽量使用Rem，设定好body的font-size，然后各部分的font-size都根据rem去取，例如 0.8rem,0.6rem等等。</li>
+<li>布局方面，左侧的长图固定的，非接口调取，宽高固定的。在整个页面中，缩放的比例完全是以此图片作为参照物。因此给此图片加上img-responsive以及col-lg-3 col-md-3 col-sm-6 col-xs-6类，然后动态的让单个盒子容器的高度取 左侧长图的高度，这样会让盒子完美的呈现，不会留有内边距，也不会让box-shadow很难看。<br>右侧的6张小图，每纵向的两个图使用一个列容器来包裹，设定 col-lg-3  col-md-3  col-sm-6 col-xs-6，这样就可以达到在手机端的显示效果，如图所示：<figure class="image-box">
+                <img src="https://img-blog.csdn.net/20180414231323872?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title="" class="">
                 <p>这里写图片描述</p>
             </figure>
-<p>如图所示，鼠标移动上去，图片会向右上角抖动，鼠标离开，图片恢复原状。</p>
-<h2 id="二、方案选择"><a href="#二、方案选择" class="headerlink" title="二、方案选择"></a>二、方案选择</h2><p>刚刚接触到这个效果的时候，我还以为是采用放大效果来实现的，即scale:1.2诸如此类的代码，结果不然。</p>
-<p>这个效果的实现，如果采用jquery的方案，直接写个动画即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//先设定好position:relative;</span><br><span class="line">$(&apos;img:hover&apos;).animate(&#123;&apos;left&apos;:&apos;10px&apos;,&apos;bottom&apos;:&apos;10px&apos;&#125;);</span><br></pre></td></tr></table></figure>
-<p>假如追根溯源，还是使用的CSS3的动画。<br>首先自定义一个动画：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@keyframes testAnimate&#123;</span><br><span class="line"></span><br><span class="line">from&#123;position: relative;bottom: 0;left: 0;&#125;</span><br><span class="line"></span><br><span class="line">to&#123;position: relative;bottom: 20px;left: 30px;border: 5px solid #999;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个动画定义了一个名为：testAnimate的位置过渡动画，从相对位置(0,0)，变到相对位置 (30px,20px)，且终态时，增加了一个5px的边框。</p>
-<p>接着，我们在测试的图片用例上来引入动画：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">img:hover&#123;</span><br><span class="line">animation:testAnimate 1s;</span><br><span class="line">-webkit-animation:testAnimate  1s;</span><br><span class="line">-moz-animation:testAnimate  1s;</span><br><span class="line">-o-animation:testAnimate  1s;</span><br><span class="line">-ms-animation:testAnimate 1s;</span><br><span class="line">&#125;</span><br><span class="line">//整个动画1s完成，并设置了浏览器兼容</span><br></pre></td></tr></table></figure>
-<p>效果如下：<br><figure class="image-box">
-                <img src="http://img.blog.csdn.net/20180102110628693?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
-                <p>这里写图片描述</p>
-            </figure><br>可能在网页上显示的不尽人意，这里面存在一个问题，当鼠标移入图片，并且悬停不动时，图片会自动回复到动画之前的状态，这就感觉像拖动一个东西，拖到一半，东西自己滑走了，好在CSS3里面有了现成的解决方案：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">img:hover&#123;</span><br><span class="line">animation-fill-mode: forwards;</span><br><span class="line">-ms-animation-fill-mode:forwards;//兼容IE  xxxxxx  </span><br><span class="line">-webkit-animation-fill-mode:forwards;//兼容Chrome xxxxxx</span><br><span class="line">-moz-animation-fill-mode:forwards;//兼容FireFox xxxxx</span><br><span class="line">-o-animation-fill-mode:forwards;//兼容opear xxxxxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样，当鼠标移入，只要不松开，图片就会停留在动画的100%状态，而不会回滚到动画为0%的状态；当鼠标移出图片，动画结束，方回到初始状态。</p>
-<h2 id="三、分析归纳"><a href="#三、分析归纳" class="headerlink" title="三、分析归纳"></a>三、分析归纳</h2><p>众所周知，jquery封装的js库，其中的动画部分来源于CSS3，作为原生的CSS，其功能不可小觑，而且相当于jquery的实现方法，这种方法定义起来更加的个性化，而且不用引入额外的js库，很省带宽。但缺点就是兼容性差，比起第三方封装的Animation.js库，兼容性不行</p>
-<p>预览效果参见：news.lanzhou.cn/system/2017/12/29/011485365.shtml 其中的【微说图解】栏目。</p>
+<h2 id="2-核心逻辑代码"><a href="#2-核心逻辑代码" class="headerlink" title="2.核心逻辑代码"></a>2.核心逻辑代码</h2></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">//动态设置每个box-shadow 容器的高度，为imgLong的高度</span><br><span class="line">var h = $(&apos;#imgLong&apos;).first().height();</span><br><span class="line"></span><br><span class="line">$(&apos;.box&apos;).each(function()&#123;</span><br><span class="line">	$(this).css(&#123;</span><br><span class="line">		height:h</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">$(window).resize(function()&#123;</span><br><span class="line">	var h=$(&quot;#imgLong&quot;).first().height();$(&quot;.box&quot;).each(function()&#123;$(this).css(&#123;height:h&#125;)&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">					</span><br><span class="line">//限制h4标签文本长度</span><br><span class="line">	$(&apos;.imgTitle&apos;).each(function()&#123;</span><br><span class="line">	//这里由于后台Trs模版获取的标题，前面有N个空格，因此需要前端来消化一下字数，故进行“空格剔除”，所以用  .split(&apos; &apos;).join(&apos;&apos;)</span><br><span class="line">	var txt = $(this).text().split(&apos; &apos;).join(&apos;&apos;);</span><br><span class="line">	if(txt.length&gt;20)&#123;		</span><br><span class="line">	</span><br><span class="line">	//其实真正的标题就10个字，但是前面有10个空格</span><br><span class="line">			                             $(this).text(txt.substring(0,19)+&apos;...&apos;);</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;);</span><br><span class="line">					</span><br><span class="line">//为所有调用的imgShort图片增加CLASS</span><br><span class="line">					</span><br><span class="line">$(&apos;.imgShortParent img&apos;).each(function()&#123;</span><br><span class="line">			$(this).addClass(&apos;imgShort&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">					</span><br><span class="line">					</span><br><span class="line">					</span><br><span class="line">//动态设定每个单列容器的宽度 = imgLong的宽度，高度 = imgLong的高度，以此来保证图片不会溢出 box-shadow。</span><br><span class="line">var h = $(&apos;.imgLong&apos;).first().height();</span><br><span class="line">var w = $(&apos;.imgLong&apos;).first().width();</span><br><span class="line"></span><br><span class="line">$(&apos;.col-box&apos;).each(function()&#123;</span><br><span class="line">   $(this).width(w).height(h);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$(window).resize(function()&#123;</span><br><span class="line">//页面缩放时，动态获取宽高，并赋值给 col-box 列容器。</span><br><span class="line">  $(&apos;.col-box&apos;).each(function()&#123;</span><br><span class="line">   $(this).width(w).height(h);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="3-不足与改进思路"><a href="#3-不足与改进思路" class="headerlink" title="3.不足与改进思路"></a>3.不足与改进思路</h2><p>3.1 页面性能不足，重绘过多，网速慢的时候，会有一瞬间发生：【图片突然很大，然后被缩放到正常比例】的恐怖现象。。。<br>解决方案：<br>可以为每张小图(250*165)包裹一层div，设置max-height与max-width，overflow:hidden，来解决。</p>
+<p>3.2 实际上，整个项目我写了两套html骨架（由于项目紧，刚接手，长时间没写代码比较陌生），pc一套，mobile一套，感到非常罪过，不配成为一个前端工程师。。。但是话说回来，原先的项目也写的太TM乱了，一个注释都没有，而且一个页面中script标签不下20个。。。<br>解决方案：<br>用我上述的思路去实现</p>
 <p><b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b></p>
 
         </div>
@@ -269,7 +266,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-05-06T14:12:09.423Z" itemprop="dateUpdated">2018-05-06 22:12:09</time>
+    Last updated: <time datetime="2018-06-27T14:11:45.467Z" itemprop="dateUpdated">2018-06-27 22:11:45</time>
 </span><br>
 
 
@@ -370,9 +367,9 @@
 
   
     <div class="next">
-      <a href="/2018/03/11/用原生js制作一个动态简历(多动症简历)及在线预览部署过程 - 副本/" id="post-next" class="post-nav-link">
+      <a href="/2018/03/11/typescript学习笔记/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">用原生js制作一个动态简历(多动症简历)及在线预览部署过程</h4>
+        <h4 class="title">TypeScript学习笔记</h4>
       </a>
     </div>
   
@@ -384,7 +381,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、效果预览"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、效果预览</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、方案选择"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、方案选择</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、分析归纳"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、分析归纳</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Boostrap重构传统固定px的页面"><span class="post-toc-number">2.</span> <span class="post-toc-text">1.Boostrap重构传统固定px的页面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-核心逻辑代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">2.核心逻辑代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-不足与改进思路"><span class="post-toc-number">4.</span> <span class="post-toc-text">3.不足与改进思路</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
