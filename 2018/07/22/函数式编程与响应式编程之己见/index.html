@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     
     
-    <title>关于CSS3呼吸效果的探究 | ZhangQiang&#39;s blog | Follow ur heart.</title>
+    <title>函数式编程与响应式编程之己见 | ZhangQiang&#39;s blog | Follow ur heart.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="css3">
+    <meta name="keywords" content="javascript">
     <link rel="shortcut icon" href="/img/favicon.png">
     <link rel="stylesheet" href="/css/style.css?v=1.2.6">
     
@@ -163,7 +163,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>关于CSS3呼吸效果的探究</span>
+            <span>函数式编程与响应式编程之己见</span>
             
         </div>
         
@@ -176,11 +176,11 @@
 <header class="content-header post-header">
     <img src="/img/banner.png" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">关于CSS3呼吸效果的探究</h1>
+        <h1 class="title">函数式编程与响应式编程之己见</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-01-17T03:18:00.000Z" itemprop="datePublished" class="page-time">
-  2018-01-17
+                <time datetime="2018-07-22T12:58:13.200Z" itemprop="datePublished" class="page-time">
+  2018-07-22
 </time>
 
 
@@ -207,18 +207,18 @@
 
 
 <div class="container body-wrap">
-    <article id="post-关于CSS3呼吸效果的探究"
+    <article id="post-函数式编程与响应式编程之己见"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">关于CSS3呼吸效果的探究</h1>
+        <h1 class="post-card-title">函数式编程与响应式编程之己见</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-01-17 11:18:00" datetime="2018-01-17T03:18:00.000Z"  itemprop="datePublished">2018-01-17</time>
+            <time class="post-time" title="2018-07-22 20:58:13" datetime="2018-07-22T12:58:13.200Z"  itemprop="datePublished">2018-07-22</time>
 
             
 
 
             
-	<span id="/2018/01/17/关于CSS3呼吸效果的探究/" class="leancloud_visitors" data-flag-title="关于CSS3呼吸效果的探究" title="关于CSS3呼吸效果的探究">
+	<span id="/2018/07/22/函数式编程与响应式编程之己见/" class="leancloud_visitors" data-flag-title="函数式编程与响应式编程之己见" title="函数式编程与响应式编程之己见">
 		
 			<i class="icon icon-eye"></i>
 		
@@ -229,8 +229,8 @@
             
     <span class="leancloud-comment">
         <i class="icon icon-comment-o"></i>
-        <a href="/2018/01/17/关于CSS3呼吸效果的探究/#comment">
-            <span class="valine-comment-count" data-xid="/2018/01/17/关于CSS3呼吸效果的探究/"></span>
+        <a href="/2018/07/22/函数式编程与响应式编程之己见/#comment">
+            <span class="valine-comment-count" data-xid="/2018/07/22/函数式编程与响应式编程之己见/"></span>
         </a>
     </span>
 
@@ -239,29 +239,20 @@
             
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>本文初始编辑地址，源自我的CSDN博客：<a href="http://blog.csdn.net/qq_20264891/article/details/78949964" target="_blank" rel="noopener">我的CSDN博客</a></p>
-<h2 id="一、效果预览"><a href="#一、效果预览" class="headerlink" title="一、效果预览"></a>一、效果预览</h2><figure class="image-box">
-                <img src="http://img.blog.csdn.net/20180102103428658?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
-                <p>这里写图片描述</p>
-            </figure>
-<p>如图所示，鼠标移动上去，图片会向右上角抖动，鼠标离开，图片恢复原状。</p>
-<h2 id="二、方案选择"><a href="#二、方案选择" class="headerlink" title="二、方案选择"></a>二、方案选择</h2><p>刚刚接触到这个效果的时候，我还以为是采用放大效果来实现的，即scale:1.2诸如此类的代码，结果不然。</p>
-<p>这个效果的实现，如果采用jquery的方案，直接写个动画即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//先设定好position:relative;</span><br><span class="line">$(&apos;img:hover&apos;).animate(&#123;&apos;left&apos;:&apos;10px&apos;,&apos;bottom&apos;:&apos;10px&apos;&#125;);</span><br></pre></td></tr></table></figure>
-<p>假如追根溯源，还是使用的CSS3的动画。<br>首先自定义一个动画：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@keyframes testAnimate&#123;</span><br><span class="line"></span><br><span class="line">from&#123;position: relative;bottom: 0;left: 0;&#125;</span><br><span class="line"></span><br><span class="line">to&#123;position: relative;bottom: 20px;left: 30px;border: 5px solid #999;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个动画定义了一个名为：testAnimate的位置过渡动画，从相对位置(0,0)，变到相对位置 (30px,20px)，且终态时，增加了一个5px的边框。</p>
-<p>接着，我们在测试的图片用例上来引入动画：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">img:hover&#123;</span><br><span class="line">animation:testAnimate 1s;</span><br><span class="line">-webkit-animation:testAnimate  1s;</span><br><span class="line">-moz-animation:testAnimate  1s;</span><br><span class="line">-o-animation:testAnimate  1s;</span><br><span class="line">-ms-animation:testAnimate 1s;</span><br><span class="line">&#125;</span><br><span class="line">//整个动画1s完成，并设置了浏览器兼容</span><br></pre></td></tr></table></figure>
-<p>效果如下：<br><figure class="image-box">
-                <img src="http://img.blog.csdn.net/20180102110628693?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
-                <p>这里写图片描述</p>
-            </figure><br>可能在网页上显示的不尽人意，这里面存在一个问题，当鼠标移入图片，并且悬停不动时，图片会自动回复到动画之前的状态，这就感觉像拖动一个东西，拖到一半，东西自己滑走了，好在CSS3里面有了现成的解决方案：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">img:hover&#123;</span><br><span class="line">animation-fill-mode: forwards;</span><br><span class="line">-ms-animation-fill-mode:forwards;//兼容IE  xxxxxx  </span><br><span class="line">-webkit-animation-fill-mode:forwards;//兼容Chrome xxxxxx</span><br><span class="line">-moz-animation-fill-mode:forwards;//兼容FireFox xxxxx</span><br><span class="line">-o-animation-fill-mode:forwards;//兼容opear xxxxxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样，当鼠标移入，只要不松开，图片就会停留在动画的100%状态，而不会回滚到动画为0%的状态；当鼠标移出图片，动画结束，方回到初始状态。</p>
-<h2 id="三、分析归纳"><a href="#三、分析归纳" class="headerlink" title="三、分析归纳"></a>三、分析归纳</h2><p>众所周知，jquery封装的js库，其中的动画部分来源于CSS3，作为原生的CSS，其功能不可小觑，而且相当于jquery的实现方法，这种方法定义起来更加的个性化，而且不用引入额外的js库，很省带宽。但缺点就是兼容性差，比起第三方封装的Animation.js库，兼容性不行</p>
-<p>预览效果参见：news.lanzhou.cn/system/2017/12/29/011485365.shtml 其中的【微说图解】栏目。</p>
-<p><b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b></p>
+            <p>本文初始编辑地址，源自我的CSDN博客：<a href="https://blog.csdn.net/qq_20264891/article/details/81157232" target="_blank" rel="noopener">我的CSDN博客</a></p>
+<h2 id="1-what-is-函数式编程？"><a href="#1-what-is-函数式编程？" class="headerlink" title="1. what is 函数式编程？"></a>1. what is 函数式编程？</h2><p>函数，在编程中，通常体现为： 输入 =&gt; 执行 =&gt; 结果。他不是命令式的，而是对一段操作进行逻辑封装，拿到输入，就能产出结果。通常来说，满足函数式编程的特性的“函数”应该有如下特点:</p>
+<p>函数必须有入参，并且函数的产出会根据入参的不同而变化。<br>函数执行的整个流程中，不会对全局变量、外部属性等产生影响。<br>函数式编程代码量小，干净。<br>举个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addOne</span> (<span class="params">array</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</span><br><span class="line">        array[i] += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addOne(arr); <span class="comment">// 2,3,4,5,6</span></span><br></pre></td></tr></table></figure>
+<p>写了一个方法，接受一个数组，产出数组每个成员+1，但这段代码的不足之处在于：</p>
+<p>难以复用，如果需求提出 addTwo,addThree方法，需要不断修改函数名和内部逻辑。<br>内部的代码很啰嗦， for 循环很low。<br>·函数式编程改进版：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.map(<span class="function"><span class="params">item</span>=&gt;</span> item+<span class="number">1</span>); <span class="comment">// 3,4,5,6,7</span></span><br></pre></td></tr></table></figure>
+<p>这里，改进使用了原生的 Array.prototype.map 方法，代码量缩小了很多不说，而且复用性进一步提升。整个函数做的事情现在非常直观，入参 =&gt; 每项参数 + 1 =&gt; 返回新数组，由此，可以说，map()方法是一个纯函数(pure function)。</p>
+<h2 id="2-响应式编程"><a href="#2-响应式编程" class="headerlink" title="2. 响应式编程"></a>2. 响应式编程</h2><p>前端中也有一个概念叫响应式，bootstrap 。这里当然说的不是这个，对于响应式编程的概念，我想提及Vue或者 angular的双向绑定来阐述：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// template: </span></span><br><span class="line"></span><br><span class="line">i<span class="string">'am &#123;&#123; name &#125;&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// js:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">name = '</span>jhon<span class="string">';</span></span><br></pre></td></tr></table></figure></p>
+<p>在前端MVVM的框架中，都有一个数据双向绑定的概念，这里的模版中的变量，实时反映了数据中的 name 变量的 value，而且，如果此时我修改了 name 的值，那么模版中对应的值也会跟着修改。数据 &lt;=&gt; 视图 是同时发生，同时改变的，因为模版就是对数据的一个映射。</p>
+<p>再举个例子：</p>
+<p>c的值，是通过 a + b 来赋值的，如果ab不是固定的，而是变化的值，那么 c 的值也不会固定为3。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>,b=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = a + b; <span class="comment">// 3</span></span><br></pre></td></tr></table></figure></p>
+<p>不难看出，响应式编程特点：</p>
+<p> 同步发生，结果会随着修改参数而实时、动态地变化。<br>存在固定的映射关系。</p>
 
         </div>
         
@@ -269,12 +260,12 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-01-19T06:57:55.004Z" itemprop="dateUpdated">2018-01-19 14:57:55</time>
+    Last updated: <time datetime="2018-07-22T13:00:51.730Z" itemprop="dateUpdated">2018-07-22 21:00:51</time>
 </span><br>
 
 
         
-        转载注明出处，原文地址：<a href="/2018/01/17/关于CSS3呼吸效果的探究/" target="_blank" rel="external">http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/</a>
+        转载注明出处，原文地址：<a href="/2018/07/22/函数式编程与响应式编程之己见/" target="_blank" rel="external">http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/</a>
         
     </div>
     <footer>
@@ -294,7 +285,7 @@
         
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
             <div class="page-share-wrap">
     
@@ -303,7 +294,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&title=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/&title=《函数式编程与响应式编程之己见》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -315,25 +306,25 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&title=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/&title=《函数式编程与响应式编程之己见》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《函数式编程与响应式编程之己见》 — ZhangQiang's blog&url=http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -358,21 +349,14 @@
         
     </div>
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="prev">
-      <a href="/2018/01/17/Webpack打包工具学习笔记/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Webpack打包工具学习笔记</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="next">
-      <a href="/2018/01/17/css3原理，结合jquery复习/" id="post-next" class="post-nav-link">
+      <a href="/2018/06/22/NodeBB搭建过程（windows+Redis）+ 科学上网方法/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">css3原理，结合jquery复习</h4>
+        <h4 class="title">NodeBB搭建过程（windows+Redis）+ 科学上网方法</h4>
       </a>
     </div>
   
@@ -384,7 +368,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、效果预览"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、效果预览</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、方案选择"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、方案选择</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、分析归纳"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、分析归纳</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-what-is-函数式编程？"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. what is 函数式编程？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-响应式编程"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 响应式编程</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
@@ -447,7 +431,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&title=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/&title=《函数式编程与响应式编程之己见》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -459,25 +443,25 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&title=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/&title=《函数式编程与响应式编程之己见》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于CSS3呼吸效果的探究》 — ZhangQiang's blog&url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《函数式编程与响应式编程之己见》 — ZhangQiang's blog&url=http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -489,7 +473,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvklEQVR42u3awW7bQAwEUP//T6fXAq3tGXI3ToCnU+FIst4W0NJDPh7x8fXP8ffnyVX5J6/v9rhx4OHh4a0fPWHkVyVnPmPM7oyHh4f3Pbz8a16Dk/M3S5k/Mx4eHt5P4z07Jy/B24IbDw8P7zfykniiDRFeL1n+PHh4eHjfz8tjhWRLyCPdfMmuZy14eHh4XXYadZF+zr+v9Pfw8PDw1l31tmXVDgTk0cPsafHw8PBu8NqXct7Cb0vhDf5NsY6Hh4d3lJfcetMeawv0dvTqzV/x8PDwLvNmI1N5Q+tU5FrcAQ8PD+8ab/jajZtbpxarvgoPDw/vAq99xH1JnQS7OaDYWvDw8PAO8V5vA3lBXGTGo+8dxsF4eHh4F3hnX9n51pJj8qWJSmo8PDy8o7wNpt1I8rJ+/2MADw8P7ywvd+cjUKcK8baMxsPDw/sUrx14ajeJdixgtqCPzZrh4eHhBfVq3vRqz9kEHO21w8kyPDw8vJLXFsT7sjt/6E1UEZXUeHh4eGteUljvQ942ik1K+afn4+Hh4V3mJW345MwkSkii3tlo15usBQ8PD2/Ny0OH/Dd+Hrnmo1oH/g/x8PDwDvFmza32Fd/C2quGvxjw8PDwFrx8CCApu/fFdxtbFDseHh4e3iFe/vWzsac25E0+eZxaCTw8PLzRkYwF1M2noDRP8Js8Fg8PD+8Grw0g2qvaInuzdf3nPnh4eHgXeG+a7qOyOIl382+Z/TCIIgk8PDy8Ee+rPPYlch5ktBFGNDqAh4eHt+bNXr77sYAckxTlm3YaHh4e3ozXjlVtMPkLPblntG3g4eHhXeO1jbFkIfLNYNi7S8poPDw8vI/yNk399kGTrSIKKfDw8PA+ytsMHOTLl2Pw8PDwPss7G0bMhqvyJStGEPDw8PAu8PIGWF5wt+2uJPKYlel4eHh4R3l/AO3P+T52htSWAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACw0lEQVR42u3aQW7CUAwE0N7/0q3UFRIkGdsxsHisUEJJXpC+f8f++Ylfv/+vx/fPR57Pnh/Pv+f57M0vPDw8vNatVy+cU4+udfT4kiPJPePh4eFt8/JicP75ZCm/9yFeWPDw8PA+yuttwc9v8fybkweBh4eH98286q2cl5O88ODh4eF9Jy8JI3qL+CRQmITCeHh4eHu8XgPss+/X+3t4eHh4g01wdVFOikpvE1++Wzw8PLwFXt6270Wx+aDAOWA0koWHh4e3wJsPENzb8p/EuCvzEXh4eHgPZwttpJsW9GrsmxSYi/8Y8PDw8JZ5eRxQjVyrW+Tqlh0PDw/vPbzqAp0zkiNJCcnjjIusBQ8PD+9WXjW6nWymq4UhB+Dh4eG9h5c05qvDT/l35o8vL2aHQwN4eHh4N/F6ja78bK9tNnmIzSKBh4eHV+TlcW3v+CRWKIxVHV0FDw8Pb42Xt5R6n8k3xJPtdXOPj4eHhxfzkrCgt6znjyBvtjV/Nzw8PLwFXnWYIKdWBwImZePFFfHw8PDewstb+/kGOn9k+XWjq+Ph4eEt8M4X6140UG1o5VFF/iAuggk8PDy8MW+vfVUFzEtC83fDw8PDi3m99tVdo1HV2Dff3OPh4eFt83oBbvXyebSR4y8eMR4eHt4ab9Lsz4tKeWSqGHAUhq7w8PDwxrx8sc6pUQoSj141AxE8PDy8BV6yUZ6frZaBSQmJwlw8PDy8Aa+6iFfj1Dk4LxvlMAIPDw9vgZfEtdXWV96+qsYcL74HDw8Pb4FXXWOrRaLXDEvij3kojIeHhzfhVVtf+WBBb99bHWu4+Fs8PDy8NV6+Le61oybNs15jDA8PD+8beL3gNW+hzePdi9ErPDw8vA/x8lJRLTmT8PewnODh4eGt8ebLd751rhab/G/x8PDw3sOrNsB6cUMecHxsPAsPDw/vmvcH2IP5Pmv9kH4AAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

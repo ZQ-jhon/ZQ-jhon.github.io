@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-27T14:13:11.506Z</updated>
+  <updated>2018-07-22T13:00:51.730Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>函数式编程与响应式编程之己见</title>
+    <link href="http://yoursite.com/2018/07/22/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B9%8B%E5%B7%B1%E8%A7%81/"/>
+    <id>http://yoursite.com/2018/07/22/函数式编程与响应式编程之己见/</id>
+    <published>2018-07-22T12:58:13.200Z</published>
+    <updated>2018-07-22T13:00:51.730Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文初始编辑地址，源自我的CSDN博客：<a href="https://blog.csdn.net/qq_20264891/article/details/81157232" target="_blank" rel="noopener">我的CSDN博客</a></p><h2 id="1-what-is-函数式编程？"><a href="#1-what-is-函数式编程？" class="headerlink" title="1. what is 函数式编程？"></a>1. what is 函数式编程？</h2><p>函数，在编程中，通常体现为： 输入 =&gt; 执行 =&gt; 结果。他不是命令式的，而是对一段操作进行逻辑封装，拿到输入，就能产出结果。通常来说，满足函数式编程的特性的“函数”应该有如下特点:</p><p>函数必须有入参，并且函数的产出会根据入参的不同而变化。<br>函数执行的整个流程中，不会对全局变量、外部属性等产生影响。<br>函数式编程代码量小，干净。<br>举个例子：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addOne</span> (<span class="params">array</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</span><br><span class="line">        array[i] += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addOne(arr); <span class="comment">// 2,3,4,5,6</span></span><br></pre></td></tr></table></figure><p>写了一个方法，接受一个数组，产出数组每个成员+1，但这段代码的不足之处在于：</p><p>难以复用，如果需求提出 addTwo,addThree方法，需要不断修改函数名和内部逻辑。<br>内部的代码很啰嗦， for 循环很low。<br>·函数式编程改进版：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.map(<span class="function"><span class="params">item</span>=&gt;</span> item+<span class="number">1</span>); <span class="comment">// 3,4,5,6,7</span></span><br></pre></td></tr></table></figure><p>这里，改进使用了原生的 Array.prototype.map 方法，代码量缩小了很多不说，而且复用性进一步提升。整个函数做的事情现在非常直观，入参 =&gt; 每项参数 + 1 =&gt; 返回新数组，由此，可以说，map()方法是一个纯函数(pure function)。</p><h2 id="2-响应式编程"><a href="#2-响应式编程" class="headerlink" title="2. 响应式编程"></a>2. 响应式编程</h2><p>前端中也有一个概念叫响应式，bootstrap 。这里当然说的不是这个，对于响应式编程的概念，我想提及Vue或者 angular的双向绑定来阐述：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// template: </span></span><br><span class="line"></span><br><span class="line">i<span class="string">'am &#123;&#123; name &#125;&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// js:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">name = '</span>jhon<span class="string">';</span></span><br></pre></td></tr></table></figure></p><p>在前端MVVM的框架中，都有一个数据双向绑定的概念，这里的模版中的变量，实时反映了数据中的 name 变量的 value，而且，如果此时我修改了 name 的值，那么模版中对应的值也会跟着修改。数据 &lt;=&gt; 视图 是同时发生，同时改变的，因为模版就是对数据的一个映射。</p><p>再举个例子：</p><p>c的值，是通过 a + b 来赋值的，如果ab不是固定的，而是变化的值，那么 c 的值也不会固定为3。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>,b=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = a + b; <span class="comment">// 3</span></span><br></pre></td></tr></table></figure></p><p>不难看出，响应式编程特点：</p><p> 同步发生，结果会随着修改参数而实时、动态地变化。<br>存在固定的映射关系。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本文初始编辑地址，源自我的CSDN博客：&lt;a href=&quot;https://blog.csdn.net/qq_20264891/article/details/81157232&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;我的CSDN博客&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>NodeBB搭建过程（windows+Redis）+ 科学上网方法</title>
@@ -368,30 +392,6 @@ alert(&#39;password error&#39;);window.
   </entry>
   
   <entry>
-    <title>关于CSS3呼吸效果的探究</title>
-    <link href="http://yoursite.com/2018/01/17/%E5%85%B3%E4%BA%8ECSS3%E5%91%BC%E5%90%B8%E6%95%88%E6%9E%9C%E7%9A%84%E6%8E%A2%E7%A9%B6/"/>
-    <id>http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/</id>
-    <published>2018-01-17T03:18:00.000Z</published>
-    <updated>2018-01-19T06:57:55.004Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文初始编辑地址，源自我的CSDN博客：<a href="http://blog.csdn.net/qq_20264891/article/details/78949964" target="_blank" rel="noopener">我的CSDN博客</a></p><h2 id="一、效果预览"><a href="#一、效果预览" class="headerlink" title="一、效果预览"></a>一、效果预览</h2><figure class="image-box">                <img src="http://img.blog.csdn.net/20180102103428658?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">                <p>这里写图片描述</p>            </figure><p>如图所示，鼠标移动上去，图片会向右上角抖动，鼠标离开，图片恢复原状。</p><h2 id="二、方案选择"><a href="#二、方案选择" class="headerlink" title="二、方案选择"></a>二、方案选择</h2><p>刚刚接触到这个效果的时候，我还以为是采用放大效果来实现的，即scale:1.2诸如此类的代码，结果不然。</p><p>这个效果的实现，如果采用jquery的方案，直接写个动画即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//先设定好position:relative;</span><br><span class="line">$(&apos;img:hover&apos;).animate(&#123;&apos;left&apos;:&apos;10px&apos;,&apos;bottom&apos;:&apos;10px&apos;&#125;);</span><br></pre></td></tr></table></figure><p>假如追根溯源，还是使用的CSS3的动画。<br>首先自定义一个动画：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@keyframes testAnimate&#123;</span><br><span class="line"></span><br><span class="line">from&#123;position: relative;bottom: 0;left: 0;&#125;</span><br><span class="line"></span><br><span class="line">to&#123;position: relative;bottom: 20px;left: 30px;border: 5px solid #999;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这个动画定义了一个名为：testAnimate的位置过渡动画，从相对位置(0,0)，变到相对位置 (30px,20px)，且终态时，增加了一个5px的边框。</p><p>接着，我们在测试的图片用例上来引入动画：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">img:hover&#123;</span><br><span class="line">animation:testAnimate 1s;</span><br><span class="line">-webkit-animation:testAnimate  1s;</span><br><span class="line">-moz-animation:testAnimate  1s;</span><br><span class="line">-o-animation:testAnimate  1s;</span><br><span class="line">-ms-animation:testAnimate 1s;</span><br><span class="line">&#125;</span><br><span class="line">//整个动画1s完成，并设置了浏览器兼容</span><br></pre></td></tr></table></figure><p>效果如下：<br><figure class="image-box">                <img src="http://img.blog.csdn.net/20180102110628693?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">                <p>这里写图片描述</p>            </figure><br>可能在网页上显示的不尽人意，这里面存在一个问题，当鼠标移入图片，并且悬停不动时，图片会自动回复到动画之前的状态，这就感觉像拖动一个东西，拖到一半，东西自己滑走了，好在CSS3里面有了现成的解决方案：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">img:hover&#123;</span><br><span class="line">animation-fill-mode: forwards;</span><br><span class="line">-ms-animation-fill-mode:forwards;//兼容IE  xxxxxx  </span><br><span class="line">-webkit-animation-fill-mode:forwards;//兼容Chrome xxxxxx</span><br><span class="line">-moz-animation-fill-mode:forwards;//兼容FireFox xxxxx</span><br><span class="line">-o-animation-fill-mode:forwards;//兼容opear xxxxxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样，当鼠标移入，只要不松开，图片就会停留在动画的100%状态，而不会回滚到动画为0%的状态；当鼠标移出图片，动画结束，方回到初始状态。</p><h2 id="三、分析归纳"><a href="#三、分析归纳" class="headerlink" title="三、分析归纳"></a>三、分析归纳</h2><p>众所周知，jquery封装的js库，其中的动画部分来源于CSS3，作为原生的CSS，其功能不可小觑，而且相当于jquery的实现方法，这种方法定义起来更加的个性化，而且不用引入额外的js库，很省带宽。但缺点就是兼容性差，比起第三方封装的Animation.js库，兼容性不行</p><p>预览效果参见：news.lanzhou.cn/system/2017/12/29/011485365.shtml 其中的【微说图解】栏目。</p><p><b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本文初始编辑地址，源自我的CSDN博客：&lt;a href=&quot;http://blog.csdn.net/qq_20264891/article/details/78949964&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;我的CSDN博客&lt;/a&gt;&lt;/p&gt;
-&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="css3" scheme="http://yoursite.com/tags/css3/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Angular搭建后台人员管理系统 1.1.0</title>
     <link href="http://yoursite.com/2018/01/17/Angular%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E4%BA%BA%E5%91%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-1-1-0/"/>
     <id>http://yoursite.com/2018/01/17/Angular搭建后台人员管理系统-1-1-0/</id>
@@ -436,6 +436,30 @@ alert(&#39;password error&#39;);window.
     
     
       <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于CSS3呼吸效果的探究</title>
+    <link href="http://yoursite.com/2018/01/17/%E5%85%B3%E4%BA%8ECSS3%E5%91%BC%E5%90%B8%E6%95%88%E6%9E%9C%E7%9A%84%E6%8E%A2%E7%A9%B6/"/>
+    <id>http://yoursite.com/2018/01/17/关于CSS3呼吸效果的探究/</id>
+    <published>2018-01-17T03:18:00.000Z</published>
+    <updated>2018-01-19T06:57:55.004Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文初始编辑地址，源自我的CSDN博客：<a href="http://blog.csdn.net/qq_20264891/article/details/78949964" target="_blank" rel="noopener">我的CSDN博客</a></p><h2 id="一、效果预览"><a href="#一、效果预览" class="headerlink" title="一、效果预览"></a>一、效果预览</h2><figure class="image-box">                <img src="http://img.blog.csdn.net/20180102103428658?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">                <p>这里写图片描述</p>            </figure><p>如图所示，鼠标移动上去，图片会向右上角抖动，鼠标离开，图片恢复原状。</p><h2 id="二、方案选择"><a href="#二、方案选择" class="headerlink" title="二、方案选择"></a>二、方案选择</h2><p>刚刚接触到这个效果的时候，我还以为是采用放大效果来实现的，即scale:1.2诸如此类的代码，结果不然。</p><p>这个效果的实现，如果采用jquery的方案，直接写个动画即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//先设定好position:relative;</span><br><span class="line">$(&apos;img:hover&apos;).animate(&#123;&apos;left&apos;:&apos;10px&apos;,&apos;bottom&apos;:&apos;10px&apos;&#125;);</span><br></pre></td></tr></table></figure><p>假如追根溯源，还是使用的CSS3的动画。<br>首先自定义一个动画：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@keyframes testAnimate&#123;</span><br><span class="line"></span><br><span class="line">from&#123;position: relative;bottom: 0;left: 0;&#125;</span><br><span class="line"></span><br><span class="line">to&#123;position: relative;bottom: 20px;left: 30px;border: 5px solid #999;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这个动画定义了一个名为：testAnimate的位置过渡动画，从相对位置(0,0)，变到相对位置 (30px,20px)，且终态时，增加了一个5px的边框。</p><p>接着，我们在测试的图片用例上来引入动画：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">img:hover&#123;</span><br><span class="line">animation:testAnimate 1s;</span><br><span class="line">-webkit-animation:testAnimate  1s;</span><br><span class="line">-moz-animation:testAnimate  1s;</span><br><span class="line">-o-animation:testAnimate  1s;</span><br><span class="line">-ms-animation:testAnimate 1s;</span><br><span class="line">&#125;</span><br><span class="line">//整个动画1s完成，并设置了浏览器兼容</span><br></pre></td></tr></table></figure><p>效果如下：<br><figure class="image-box">                <img src="http://img.blog.csdn.net/20180102110628693?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">                <p>这里写图片描述</p>            </figure><br>可能在网页上显示的不尽人意，这里面存在一个问题，当鼠标移入图片，并且悬停不动时，图片会自动回复到动画之前的状态，这就感觉像拖动一个东西，拖到一半，东西自己滑走了，好在CSS3里面有了现成的解决方案：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">img:hover&#123;</span><br><span class="line">animation-fill-mode: forwards;</span><br><span class="line">-ms-animation-fill-mode:forwards;//兼容IE  xxxxxx  </span><br><span class="line">-webkit-animation-fill-mode:forwards;//兼容Chrome xxxxxx</span><br><span class="line">-moz-animation-fill-mode:forwards;//兼容FireFox xxxxx</span><br><span class="line">-o-animation-fill-mode:forwards;//兼容opear xxxxxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样，当鼠标移入，只要不松开，图片就会停留在动画的100%状态，而不会回滚到动画为0%的状态；当鼠标移出图片，动画结束，方回到初始状态。</p><h2 id="三、分析归纳"><a href="#三、分析归纳" class="headerlink" title="三、分析归纳"></a>三、分析归纳</h2><p>众所周知，jquery封装的js库，其中的动画部分来源于CSS3，作为原生的CSS，其功能不可小觑，而且相当于jquery的实现方法，这种方法定义起来更加的个性化，而且不用引入额外的js库，很省带宽。但缺点就是兼容性差，比起第三方封装的Animation.js库，兼容性不行</p><p>预览效果参见：news.lanzhou.cn/system/2017/12/29/011485365.shtml 其中的【微说图解】栏目。</p><p><b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本文初始编辑地址，源自我的CSDN博客：&lt;a href=&quot;http://blog.csdn.net/qq_20264891/article/details/78949964&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;我的CSDN博客&lt;/a&gt;&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="css3" scheme="http://yoursite.com/tags/css3/"/>
     
   </entry>
   
@@ -532,30 +556,6 @@ alert(&#39;password error&#39;);window.
     
     
       <category term="angularjs" scheme="http://yoursite.com/tags/angularjs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于jQuery中scrollTop中的一些兼容问题。</title>
-    <link href="http://yoursite.com/2017/12/13/%E5%85%B3%E4%BA%8EjQuery%E4%B8%ADscrollTop%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2017/12/13/关于jQuery中scrollTop中的一些兼容问题/</id>
-    <published>2017-12-13T05:25:00.000Z</published>
-    <updated>2018-01-19T07:04:17.801Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文初始编辑地址，源自我的CSDN博客：<a href="http://blog.csdn.net/qq_20264891/article/details/78790869" target="_blank" rel="noopener">我的CSDN博客</a></p><p>最近在做一个响应式的页面，需要有按钮来实现点击回到页头及点击回到页尾的功能。<br>在使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#btn&apos;).click(function()&#123;</span><br><span class="line">   $(body).animate(&#123;</span><br><span class="line"> scrollTop:0</span><br><span class="line">   &#125;,speed);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//发现，该功能只在IE与FireFox下有用，Chrome内核无效。</span><br></pre></td></tr></table></figure><figure class="image-box">                <img src="http://files.jb51.net/file_images/article/201512/2015123120741782.png?201511312749" alt="这里写图片描述" title="" class="">                <p>这里写图片描述</p>            </figure><p>即：</p><p>选择器为body时：FireFox无效，Chrome有效<br>选择器为html时：Chrome有效，FireFox无效</p><p>因此，在编写代码的时候，只要进行双重选择即可兼容：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#btn&apos;).on(&apos;click&apos;, function() &#123;</span><br><span class="line">var speed = 400; //滑动的速度</span><br><span class="line">$(&apos;html,body&apos;).animate(&#123;</span><br><span class="line">scrollTop: 0</span><br><span class="line">&#125;, speed);</span><br><span class="line">return false;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>经测试，在IE(9及以上),FireFox及Chome浏览器下，均能正常使用该功能。</p><p><b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本文初始编辑地址，源自我的CSDN博客：&lt;a href=&quot;http://blog.csdn.net/qq_20264891/article/details/78790869&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;我的CSDN博客&lt;/a&gt;&lt;/p&gt;
-&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="jquery" scheme="http://yoursite.com/tags/jquery/"/>
     
   </entry>
   
