@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>Git与GitHub之远程仓库 | ZhangQiang&#39;s blog | Follow ur heart.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="git">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.2.6">
+    
+	
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":true,"app_id":"LSbj8deFCLr0XdOxT6aGGld9-gzGzoHsz","app_key":"u5T5LgryYWwkfxkw0kjSsTcJ","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"LSbj8deFCLr0XdOxT6aGGld9-gzGzoHsz","appkey":"u5T5LgryYWwkfxkw0kjSsTcJ","notify":true,"verify":false,"placeholder":"如您有其他建议，可以通过左侧菜单栏中的QQ在线发起会话，欢迎交流、合作、打赏。#留言板中的预留信息","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"codefine","repo":"gitment","oauth":{"client_id":null,"client_secret":null},"perPage":10}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.png" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">zhangqiang</h5>
+          <a href="mailto:350037310@qq.com" title="350037310@qq.com" class="mail">
+            
+              <span>3</span>
+            
+              <span>5</span>
+            
+              <span>0</span>
+            
+              <span>0</span>
+            
+              <span>3</span>
+            
+              <span>7</span>
+            
+              <span>3</span>
+            
+              <span>1</span>
+            
+              <span>0</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/ZQ-jhon" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://sighttp.qq.com/authd?IDKEY=1c72f08d824e28c2b7c02e5b43e8e6a04124774470d4dcce" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://blog.csdn.net/qq_20264891" target="_blank">
+                  <i class="icon icon-lg icon-copyright"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                首页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                概览
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                笔记
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-github"></i>
+                项目
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                留言板
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>Git与GitHub之远程仓库</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.png" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">Git与GitHub之远程仓库</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-11T08:46:00.000Z" itemprop="datePublished" class="page-time">
+  2017-12-11
+</time>
+
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-Git与GitHub之远程仓库"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">Git与GitHub之远程仓库</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-11 16:46:00" datetime="2017-12-11T08:46:00.000Z"  itemprop="datePublished">2017-12-11</time>
+
+            
+
+
+            
+	<span id="/2017/12/11/Git与GitHub之远程仓库/" class="leancloud_visitors" data-flag-title="Git与GitHub之远程仓库" title="Git与GitHub之远程仓库">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/2017/12/11/Git与GitHub之远程仓库/#comment">
+            <span class="valine-comment-count" data-xid="/2017/12/11/Git与GitHub之远程仓库/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>本文初始编辑地址，源自我的CSDN博客：<a href="http://blog.csdn.net/qq_20264891/article/details/78774208" target="_blank" rel="noopener">我的CSDN博客</a></p>
+<h2 id="在GitHub上创建一个repository。"><a href="#在GitHub上创建一个repository。" class="headerlink" title="在GitHub上创建一个repository。"></a>在GitHub上创建一个repository。</h2><p>1.首先，生成私钥和公钥：</p>
+<p>$ ssh-keygen -t rsa -C “350037310@qq.com” (最好填写gitHub的注册邮箱)</p>
+<p>这里有个关键的地方：SSH，待会会用到。</p>
+<figure class="image-box">
+                <img src="http://img.blog.csdn.net/20171211161758024?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjAyNjQ4OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="" class="">
+                <p>这里写图片描述</p>
+            </figure>
+<p>2.将本地的Git关联到GitHub</p>
+<p>在本地命令行中：<code>git remote add origin git@github.com:ZQ-jhon/test.git</code>即可关联远程仓库(这里的git@github.com对应上图。)</p>
+<p>狂敲回车，然后在C：/Administrator下会生成一个.ssh文件夹，找到里面_pub的文件，记事本打开，全部ctrl+c，来到:</p>
+<p>gitHub—–&gt;Settings——&gt;SSH and GPG keys ,点New SSH Key ，title随便取个名字，底下内容粘贴刚才复制的_pub文件，OK。</p>
+<p>OK，至此，两个库已经关联起来了。关联的GitHub项目库仅仅是名为test的这个库。</p>
+<p>3.将本地库推到GitHub中。<br>$ git push -u origin master </p>
+<p>4.提示信息<br>第一次关联推送时，提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &apos;github.com (xx.xx.xx.xx)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is xx.xx.xx.xx.xx.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
+<p>输入yes，回车，OK，现在远程仓库和本地仓目录一摸一样了。</p>
+<p>以后每次推送，只需要$git push origin master就行。</p>
+<p><b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-01-19T07:09:57.524Z" itemprop="dateUpdated">2018-01-19 15:09:57</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2017/12/11/Git与GitHub之远程仓库/" target="_blank" rel="external">http://yoursite.com/2017/12/11/Git与GitHub之远程仓库/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.png" alt="zhangqiang">
+            zhangqiang
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/12/11/Git与GitHub之远程仓库/&title=《Git与GitHub之远程仓库》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/12/11/Git与GitHub之远程仓库/&title=《Git与GitHub之远程仓库》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/11/Git与GitHub之远程仓库/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Git与GitHub之远程仓库》 — ZhangQiang's blog&url=http://yoursite.com/2017/12/11/Git与GitHub之远程仓库/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/11/Git与GitHub之远程仓库/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2017/12/12/ajax回顾/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ajax回顾</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2017/12/11/Git与GitHub之本地仓库/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Git与GitHub之本地仓库</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在GitHub上创建一个repository。"><span class="post-toc-number">1.</span> <span class="post-toc-text">在GitHub上创建一个repository。</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        支持作者更好的创作
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                zhangqiang &copy; 2018
+            </span>
+        		
+           	
+            
+            
+            
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/12/11/Git与GitHub之远程仓库/&title=《Git与GitHub之远程仓库》 — ZhangQiang's blog&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/12/11/Git与GitHub之远程仓库/&title=《Git与GitHub之远程仓库》 — ZhangQiang's blog&source=Web Front End Tec" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/11/Git与GitHub之远程仓库/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Git与GitHub之远程仓库》 — ZhangQiang's blog&url=http://yoursite.com/2017/12/11/Git与GitHub之远程仓库/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/11/Git与GitHub之远程仓库/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACFUlEQVR42u3aQW6EMAwFUO5/aSp1V7Vivm2m0piXFYIMk8fCiu0cRzzO7/H7zuT+eTmOdwwMDIyPZSSvu74/mTOfj4GB8RzGdZBNXn0dmq/fk8x/sWYMDAyMy01bL2RjYGBgvJvRu64uHQMDA6OXWCa/rS79hpIcBgbGaka1MfCf12/sb2BgYHwI42yNXsJZLdgV1oOBgbGaMUk1k7ZlFZCwo1wcAwNjHSMPi5MyXDVMN+djYGCsY8w3cwkpCamj0I+BgbGakR+kqIbge4t60RwMDIzVjPkhsHncm6TKGBgYGNWWQK/of3MujoGBsYhx19/n28RqQlvOxTEwMNYxJo2BSbjsBfFoA4qBgbGOMU9BJ03NScPgxzUGBsZqRrW4NimT5Ulpry2KgYGxlVFdenVOnsqOmgcYGBirGdcvyg9+JQuqhtf8o2BgYOxmVDd5k6eTAP0CiYGB8QBG78d5O7MXpvNyHgYGxm5G4ehVa495xqPKxsDAeA4jOfowaQPkLYfqoY2julAMDIyPZfSm9hZafdprV2BgYOxjnMWRbPiqIbVanvvjKQYGxmpGPnqZcV6Gu5452iZiYGCsYEwKYfk2rvrJqikxBgbGExh5strb5I3ifbI1xMDAwCiG4CTgJsfLCp8AAwMDY9DgrCarN5TSMDAwljLyJLa6uEkprUDFwMBYzZgE5V7Eq5bw8lYEBgbGOsYX+Dkd8+okUDcAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.2.6"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.2.6"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.2.6"></script>
+
+<!-- third-party -->
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.2.6"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/js/plugins/valine.js?v=1.2.6"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/js/plugins/leancloud_visitors.js?v=1.2.6"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'Whre are u?';
+                clearTimeout(titleTime);
+            } else {
+                document.title = 'Hello!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+    
+</body>
+</html>
