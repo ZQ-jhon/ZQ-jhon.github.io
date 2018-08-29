@@ -9,6 +9,7 @@ comment: true #是否开启评论功能
 
 ## 持续集成的概念 ##
 现在前端项目都是模块化开发，需要大量的 npm install ,编译等环节，除去在开发环节中使用诸如 webpack 这样的自动化工具，在部署的时候，也可以使用 Travis 来提升部署效率。
+持续集成，相当于将环境搭建在云端，每次只需提交代码到对应的分支，就会触发 CI 自动构建，其中构建过程中的指令都可以指定。
 
 ## 准备工作 ##
 
@@ -86,12 +87,10 @@ env:
 配置完成后推送到仓库中，我们就能看到网站中在部署了。
 
  - 展示：
-
-参考：
-
- 1.  [https://www.jianshu.com/p/5691815b81b6](https://www.jianshu.com/p/5691815b81b6)
- 2. [https://blog.csdn.net/woblog/article/details/51319364](https://blog.csdn.net/woblog/article/details/51319364)
-          
+   
  ![部署成功](https://img-blog.csdn.net/20180829151945335?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+ - 参考：
+ [https://www.jianshu.com/p/5691815b81b6](https://www.jianshu.com/p/5691815b81b6)
+ [https://blog.csdn.net/woblog/article/details/51319364](https://blog.csdn.net/woblog/article/details/51319364)
 
  <b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b>
