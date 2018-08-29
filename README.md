@@ -1,3 +1,3 @@
 ## 个人博客
-(zq-jhon.github.io)[zq-jhon.github.io] 
+<a href="zq-jhon.github.io" >zq-jhon.github.io</a> 
 希望多加关注！
