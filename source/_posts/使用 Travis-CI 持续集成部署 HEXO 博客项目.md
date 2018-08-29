@@ -45,19 +45,17 @@ $ hexo s // 起服务
 
  - 回到Travis官网，在设置中填入刚复制的token，取一个名字，这个名字需要写到下面的配置文件中
 ![添加 token](https://img-blog.csdn.net/20180829151351186?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
- - 在你的hexo博客源码中添加配置文件.travis.yml，如下：
+ - 在你的hexo项目的 **分支中** 添加配置文件.travis.yml，并且**放在 HEXO 源码分支的根目录下**如下：
  
-
+![.travis.yml](https://img-blog.csdn.net/20180829153110581?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 ```
 language: node_js
 node_js: stable
 
-\# S: Build Lifecycle
 install:
   - npm install -g gulp
   - npm install
 
-\#before_script:
  # - npm install -g gulp
 
 script:
@@ -71,8 +69,7 @@ after_script:
   - git add .
   - git commit -m "Update docs with TRAVIS-CI."
   - `git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master`
-\# E: Build LifeCycle
-
+  
 branches:
   only:
     - hexo
@@ -81,10 +78,9 @@ env:
    - GH_REF: github.com/ZQ-jhon/ZQ-jhon.github.io.git
              ```
 
-你需要修改的是git的配置信息。
+你需要修改的是 user.name，user.email，以及在 GH_REF 中填写你自己的仓库中该项目的地址( 浏览器 url 自己找规律 )。
 要使用https协议的仓库地址，使用ssh仓库地址会失败。
-注意这一行`git push --force --quiet "https://${githubblog}@${GH_REF}"` 中的githubblog就是你刚在token那里取的名字，要对应上
-
+注意这一行`git push --force --quiet "https://${githubblog}@${GH_REF}"` 中的githubblog就是你刚在token那里取的 Token 字段，key 要对应上。
 
 配置完成后推送到仓库中，我们就能看到网站中在部署了。
 
@@ -95,5 +91,5 @@ env:
  
  - 参考：
  [https://www.jianshu.com/p/5691815b81b6](https://www.jianshu.com/p/5691815b81b6)
- [https://blog.csdn.net/woblog/article/details/51319364](https://blog.csdn.net/woblog/article/details/51319364)
+ [https://blog.csdn.net/woblog/article/details/51319364](https://blog.csdn.net/woblog/article/details
  <b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b>
