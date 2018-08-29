@@ -6,9 +6,6 @@ reward: true #是否开启打赏功能
 comment: true #是否开启评论功能
 ---
 
-
-TRVIS-CI TEST!!!!!!!!!!!!!!!
-
 本文初始编辑地址，源自我的CSDN博客：[我的CSDN博客](https://mp.csdn.net/postedit/82085958)
 
 Cookie 是比较早的服务端和客户端验证身份的方法。
