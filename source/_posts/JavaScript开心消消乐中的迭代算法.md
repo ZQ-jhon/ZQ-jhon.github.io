@@ -1,6 +1,6 @@
 ﻿---
 title: JavaScript开心消消乐中的迭代算法 
-date: 2017-10-22 13:35
+date: 2017-10-22 13:35:00
 tags: 算法
 reward: true #是否开启打赏功能
 comment: true #是否开启评论功能

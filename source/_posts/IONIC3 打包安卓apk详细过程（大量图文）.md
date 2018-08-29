@@ -1,6 +1,6 @@
 ﻿---
 title:  IONIC3 打包安卓apk详细过程（大量图文）
-date:   2018年03月06日 23:44:03
+date:   2018-03-06 23:44:03
 tags: [android,SDK,JDK,APP,IONIC,gradle]
 reward: true #是否开启打赏功能
 comment: true #是否开启评论功能

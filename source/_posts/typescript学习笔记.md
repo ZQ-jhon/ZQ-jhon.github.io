@@ -1,6 +1,6 @@
 ﻿---
 title:  TypeScript学习笔记
-date:   2018年3月11日 18:28:38
+date:   2018-03-11 18:28:38
 tags: [typescript,编译,javascript,工具]
 reward: true #是否开启打赏功能
 comment: true #是否开启评论功能

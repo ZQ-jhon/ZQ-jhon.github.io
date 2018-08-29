@@ -1,15 +1,9 @@
 ﻿---
-
 title: Cookie、Session、Token
-
 date: 2018-08-26 23:57:08
-
 tags: http
-
 reward: true #是否开启打赏功能
-
 comment: true #是否开启评论功能
-
 ---
 
 本文初始编辑地址，源自我的CSDN博客：[我的CSDN博客](https://mp.csdn.net/postedit/82085958)

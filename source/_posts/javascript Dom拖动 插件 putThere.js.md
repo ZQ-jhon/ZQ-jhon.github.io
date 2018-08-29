@@ -1,6 +1,6 @@
 ﻿---
 title:  javascript Dom拖动 插件 putThere.js
-date: YYYY-MM--DD hh-mm-ss
+date: 2018-03-06 00:00:00
 tags: [javascript , plug-in]
 reward: true #是否开启打赏功能
 comment: true #是否开启评论功能

@@ -1,6 +1,6 @@
 ﻿---
 title: AngularJS学习笔记3
-date: 2017-12-05 18:44
+date: 2017-12-05 18:44:00
 tags: angularjs
 reward: true #是否开启打赏功能
 comment: true #是否开启评论功能

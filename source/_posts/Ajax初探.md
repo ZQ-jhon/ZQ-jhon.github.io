@@ -1,6 +1,6 @@
 ﻿---
 title: Ajax初探 
-date: 2017-11-06 14:03
+date: 2017-11-06 14:03:00
 tags: ajax
 reward: true #是否开启打赏功能
 comment: true #是否开启评论功能

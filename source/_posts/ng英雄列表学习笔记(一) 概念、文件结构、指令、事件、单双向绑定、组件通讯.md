@@ -1,6 +1,6 @@
 ﻿---
 title:  ng英雄列表学习笔记(一) 概念、文件结构、指令、事件、单/双向绑定、组件通讯
-date: YYYY-MM--DD hh-mm-ss
+date: 2018-03-25 00:00:00
 tags: [angular] 
 reward: true #是否开启打赏功能
 comment: true #是否开启评论功能

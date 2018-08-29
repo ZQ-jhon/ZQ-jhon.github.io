@@ -1,6 +1,6 @@
 ﻿---
 title:  基于HEXO的个人博客图文搭建详尽过程，看不懂算我输
-date: 2018-01-18 16:08
+date: 2018-01-18 16:08:00
 tags: [HEXO,动态部署]
 reward: true #是否开启打赏功能
 comment: true #是否开启评论功能
