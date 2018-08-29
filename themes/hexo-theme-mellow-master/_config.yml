@@ -56,9 +56,9 @@ email: 350037310@qq.com
 ## 使用fontawesome图标，只需要写图标名。github -> icon-github | fa-github
 ## http://http://fontawesome.dashgame.com/
 menu_link:
-  GITHUB: https://github.com/ZQ-jhon | github
+  GITHUB: https://https://github.com/ZQ-jhon | github
   QQ :  http://sighttp.qq.com/authd?IDKEY=1c72f08d824e28c2b7c02e5b43e8e6a04124774470d4dcce | qq
-  CSDN: http://blog.csdn.net/qq_20264891 | copyright
+  CDDN: http://blog.csdn.net/qq_20264891 | copyright
 
 
 # 添加新菜单项遵循以下规则
@@ -197,9 +197,9 @@ toc:
 
 # 友情链接
 blogroll:
-  item1:
-   name: Fanerge God
-    url: https://fanerge.github.io
+  #item1:
+   # name: Michale.Lu‘s Blog
+    #url: https://www.lujingtao.com
   #item2:
     #name: gitee
     #url: https://www.gitee.com
@@ -233,7 +233,7 @@ hosted: false
 local_search: true
 
 # 百度统计
-baidu_tongji: #appid
+#baidu_tongji: #appid
 
 # gitment评论系统
 ## https://github.com/imsun/gitment
@@ -253,9 +253,9 @@ valine:
   enable: true
   appid: LSbj8deFCLr0XdOxT6aGGld9-gzGzoHsz
   appkey: u5T5LgryYWwkfxkw0kjSsTcJ
-  notify: false  #是否开启邮箱提醒
+  notify: true  #是否开启邮箱提醒
   verify: false  #是否开启验证码
-  placeholder: 如您有其他建议，可以通过左侧菜单栏中的QQ在线发起会话，欢迎交流、合作、打赏。#留言板中的预留信息
+  placeholder: 如您有其他建议，可以通过博客中的微博，QQ联系我... #留言板中的预留信息
   avatar: 'wavatar'  #用户头像
 
 # 文章浏览统计
