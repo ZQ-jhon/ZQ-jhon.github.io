@@ -1,0 +1,123 @@
+﻿---
+title: About Me 
+date: 2018-01-19 09:01:21
+tag: [about]
+reward: false
+comment: false
+share: true
+---
+﻿张强  
+==
+[GitHub博客](https://ZQ-jhon.github.io)
+<br/>
+[CSDN博客](http://blog.csdn.net/qq_20264891)
+ - 24岁
+ - 通信工程(本科)  
+ - 擅长写作
+ - 热爱音乐
+ 
+## 在校经验 ##
+ - 2012年下半年，任职学校贴吧大吧主，负责与百度贴吧官方申请活动物资，负责策划线下活动，负责向校方申请活动场地，拉赞助等。有良好的组织和策划能力，曾经发起向大凉山贫困地区募捐活动，筹集善款1600+元，衣物/书籍 20+ 编织袋。
+ 链接:[贴吧大凉山活动募捐总结](http://tieba.baidu.com/p/2067459311?see_lz=1)
+ - 2014年，在青岛绿城房地产有限公司实习渠道专员。
+
+
+## 工作经验 ##
+     
+ -  2016年7月毕业，任职青岛某艺术培训学校吉他老师，负责日常微信公众号运营、小孩吉他教学。
+
+ - 2017年初，入职中国兰州网，担任前端开发，负责专题设计、JS逻辑层交互代码、北方网后台模版渲染对接、老旧网页响应式改造重构。
+ 
+ - 2018年，怀着憧憬来到北京，就职于 《光辉城市》科技有限公司，任职前端开发( Angular 6.0 + )，负责官网后台组件开发/重构，对接 API，前沿知识学习并利用到项目中，混合应用（Ionic + Electron）
+ 
+##  我的优势 ##
+ -  良好抗压能力：有压力会使我成长的更快。
+ - 极强的书面表达能力：从小就爱写作。
+ - 良好的自驱能力：每天都保持写博客，看技术文章学习提升，有开源精神。
+ - 良好的学习与沟通能力：有弄不懂的我一定会问。
+
+
+## 技能与项目 ##
+
+
+**1.技能**
+
+ - 掌握HTML语义化标签、CSS常见属性与布局(Flex,Grid)及CSS3新特性
+ - 掌握Bootstrap，能够快速搭建响应式页面
+ - 掌握JS常用API，以及闭包、原型链、面向对象和继承(ES5)，熟练使用 TS,例如枚举，解构，泛型，接口等
+ - 常逛github，熟悉git,svn等版本控制工具，会使用 commitlint 来语义化的 commit
+ - 熟悉Nodejs，对Webpack、AngularJs、Express进行过一定的实践
+ - 熟悉Ajax异步流程，包括JQuery和Angular封装的Ajax
+ - 熟悉前端优化的方法和手段
+ 
+**2.项目/实践**
+ <br/>
+2.0专题汇总
+
+2.1中国兰州网美食频道 (尚未开源)
+http://food.lanzhou.cn/ <br/> 
+【主导整个页面框架设计，滚动页面的逻辑。】
+<br/>
+<br/>
+<br/>
+2.2中国兰州网新闻页面框架重构改造(尚未开源)   <br/>             
+旧  新闻框架（2015）：<br/>
+[旧新闻框架](http://lz.lanzhou.cn/system/2018/01/27/011502940.shtml)
+<br/>
+新 响应式新闻框架（2017.8）：<br/>
+[响应式新闻框架](http://news.lanzhou.cn/system/2018/01/11/011492028.shtml)
+<br/>
+旧：图片新闻框架（2015）:<br/>
+[图片新闻框架](http://news.lanzhou.cn/system/2018/01/25/011501122.shtml)
+<br/>
+新：响应式图片框架（2017.8）<br/>
+[响应式图片框架](http://news.lanzhou.cn/system/2017/12/13/011475652.shtml)
+<br/>
+【整个项目的技术选型、代码编写、兼容测试、灰度发布、部署上线都是我自己主动向Leader请缨完成的。其中也踩了不少的坑，主要的用了一个Bootstrap的UI框架和jQuery（前者的依赖）。】
+<br/>
+<br/>
+<br/>
+2.3 Angular和Bootstrap搭建后台管理系统 1.0.0版本<br/>
+
+预览: https://zq-jhon.github.io/angular-demo/<br/>
+源码:https://github.com/ZQ-jhon/angular-demo<br/>
+博客记录：<br/>
+[博客记录1](http://blog.csdn.net/qq_20264891/article/details/78842927)
+[博客记录2](http://blog.csdn.net/qq_20264891/article/details/78842927)<br/>
+【这是刚开始接触Angular的时候做的，了解到它的双向数据绑定非常厉害，结合之前的Bootstrap做了一个实践项目。】
+<br/>
+<br/>
+<br/>
+2.4 基于HEXO和GIT的个人博客<br/>
+预览:https://ZQ-jhon.github.io<br/>
+源码:https://github.com/ZQ-jhon/ZQ-jhon.github.io<br/>
+博客记录: [基于HEXO和GIT的个人博客详细搭建及部署过程](http://blog.csdn.net/qq_20264891/article/details/79096846)<br/>
+【以前面试连博客都没有，后来就像把Demo部署到线上，让面试官一眼就能看见，所以花了一两天时间找了个漂亮的HEXO主题，进行部分样式修改，结合GITHUB的知识，顺利部署上线。期间也有很多不懂的地方，也咨询了HEXO主题的作者】
+<br/>
+<br/>
+<br/>
+2.5 原生js的插件----putThere.js 拖动DOM元素<br/>
+
+预览:https://zq-jhon.github.io/putThere.js/<br/>
+源码:https://github.com/ZQ-jhon/putThere.js<br/>
+博客记录:[putThere.js造小轮子记录博客](http://blog.csdn.net/qq_20264891/article/details/79172246)<br/>
+【之前对360浏览器的首页缩略图书签拖动感兴趣，我立马造了这个小轮子】
+<br/>
+<br/>
+<br/>
+2.6 多动症简历
+预览:https://zq-jhon.github.io/resume/<br/>
+源码:https://github.com/ZQ-jhon/resume<br/>
+博客记录: [多动症简历详细记录](http://blog.csdn.net/qq_20264891/article/details/79197651)<br/>
+【因为看到网上一个国外前端做了这样一份简历([http://strml.net/](http://strml.net/))，于是我自己根据JS知识，也进行了实践。】
+<br/>
+<br/>
+<br/>
+## 想说的话 ##
+<br/>
+
+ - 期待的工作氛围：良好的技术氛围，能够多学东西，不限于前端。如果想培养我成为一名全栈工程师当然再好不过啦。
+ - 期待的工作城市：北京、上海、广州、深圳、杭州。
+ - 期待的发展：可以成为一名全栈开发人员。
+ - 何时入职：本人目前在老家甘肃兰州，正月十五启程！
+ - 写于2018年2月5日

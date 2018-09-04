@@ -20,5 +20,6 @@ share: true
 
 北岛——《无题》
 
+View More: [https://zq-jhon.github.io/resume.html](https://zq-jhon.github.io/resume.html)
 
 
