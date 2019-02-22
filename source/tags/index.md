@@ -20,14 +20,12 @@ type Vers = {
 
 class Version {
     constructor(v1: string, v2: string) {
-
         const result = this.compareVersion(
             this.flatVersion(v1),
             this.flatVersion(v2)
         )
-        console.log(result);
     }
-    flatVersion(v: string): Vers {
+    public flatVersion(v: string): Vers {
         const verArr = v.split('.'); // eg: ['1','2','3a']
         let vs = {
             main: + verArr[0],
@@ -45,7 +43,7 @@ class Version {
      *           result = 0 , v1 = v2; 
      *           result = -1 , v1 < v2;
      */
-    compareVersion(v1: Vers, v2: Vers): number {
+    public compareVersion(v1: Vers, v2: Vers): number {
         if (v1.main === v2.main && v1.minor === v2.minor && v1.beta === v2.beta) { return 0; }
 
 
@@ -69,8 +67,5 @@ class Version {
 // 实例出一个 Version 对象，填入两个比较的参数，进行比较，控制台看结果。
 const v1 = '1.2.4b', v2 = '1.2.3a';
 new Version(v1, v2);
-
-
-
 
 ```
