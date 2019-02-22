@@ -17,8 +17,7 @@ comment: true #是否开启评论功能
 
 ```
 但是设置了这个属性后，发现在 title-bar 上双击全屏和 restore size 的功能又废了，现象如图：
-![https://img-blog.csdnimg.cn/20190219173642306.gif](https://img-blog.csdnimg.cn/20190219173642306.gif)
-
+<img src="https://img-blog.csdnimg.cn/20190219173642306.gif" alt="现象">
 
 怎么办呢？
 

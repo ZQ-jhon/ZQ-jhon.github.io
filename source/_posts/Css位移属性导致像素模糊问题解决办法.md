@@ -25,17 +25,17 @@ comment: true #是否开启评论功能
 以上代码，是做一个模态框，该模态框使用 Hack 方法来垂直竖直两个方向居中，但是在实际操作中，会发现，整个模态框的边缘，会出现模糊的现象，仿佛打了马赛克一样。
 
 马赛克版：
-![马赛克](https://img-blog.csdnimg.cn/20190222103114976.png)
+<img src="https://img-blog.csdnimg.cn/20190222103114976.png" alt="马赛克">
 
 高清版:
-![高清版](https://img-blog.csdnimg.cn/20190222103150331.png)
+<img src="https://img-blog.csdnimg.cn/20190222103150331.png" alt="高清版">
+
 
 可能上传的图片质量不高，但在我的电脑上差异非常明显
 
 ## 二、分析原因 ##
 经过查阅资料和一通分析，发现是CSS 的 transform： translate 属性在作元素位移时，极有可能发生像素点无法对其的情况，从而导致显示模糊的问题，画个灵魂示例图：
-
-![灵魂示意图](https://img-blog.csdnimg.cn/20190222104705597.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx,size_16,color_FFFFFF,t_70)
+<img src="https://img-blog.csdnimg.cn/20190222104705597.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMjY0ODkx,size_16,color_FFFFFF,t_70" alt="灵魂示意图">
 
 如图，正常情况下，元素的边缘应该和像素点对齐，但是经过 CSS translate 后，计算的结果并非整数的像素点，导致本来一个像素能渲染的内容，没有完全归纳在其像素点内，导致出现模糊的情况。
 
