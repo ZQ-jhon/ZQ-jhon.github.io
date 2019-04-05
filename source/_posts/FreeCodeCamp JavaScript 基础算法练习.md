@@ -1,3 +1,11 @@
+---
+title: FreeCodeCamp JavaScript 基础算法练习
+date: 2019-04-06 00:09:11
+tags: [算法]
+reward: true #是否开启打赏功能
+comment: true #是否开启评论功能
+---
+
 ## 起由 ##
 最近由于 996.icu 事件，才知道 GitHub 排行前十的 repo 中有这样一个项目。于是就刷起来了
 
