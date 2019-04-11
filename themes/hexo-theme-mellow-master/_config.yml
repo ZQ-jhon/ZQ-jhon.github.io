@@ -255,7 +255,7 @@ valine:
   appkey: u5T5LgryYWwkfxkw0kjSsTcJ
   notify: true  #是否开启邮箱提醒
   verify: false  #是否开启验证码
-  placeholder: 如您有其他建议，可以通过左上角的QQ发起回话，或者在留言板中留言给我... #留言板中的预留信息
+  placeholder: 如您有其他建议，可以通过左上角的QQ发起回话，或者在 https://zq-jhon.github.io/about/ 中添加我的微信
   avatar: 'wavatar'  #用户头像
 
 # 文章浏览统计

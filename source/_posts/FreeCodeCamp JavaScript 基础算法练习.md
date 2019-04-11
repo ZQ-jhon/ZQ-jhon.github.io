@@ -5,6 +5,7 @@ tags: [算法]
 reward: true #是否开启打赏功能
 comment: true #是否开启评论功能
 ---
+<iframe type="music" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=451385781&auto=1&height=66"></iframe>
 
 ## 起由 ##
 最近由于 996.icu 事件，才知道 GitHub 排行前十的 repo 中有这样一个项目。于是就刷起来了
