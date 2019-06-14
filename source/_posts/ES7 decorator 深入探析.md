@@ -150,7 +150,7 @@ console.log(p.name); // 3
    标记 1
 ```
 
-#### 第三种，装饰器的高级用法（链式调用以及 mixin)
+#### 第三种，装饰器的高级用法（链式调用, combine 以及 mixin)
 ##### 1.链式（连续）
 首先来看链式（连续）调用，这次多加一个装饰器，并且继续通过打印的方式来查看下调用的顺序：
 ```javascript
@@ -187,9 +187,7 @@ p1.method();
 
 咦？明明 `@mark(1) ` 在 `@mark(2)` 之前调用的啊，为什么 2 比 1 先执行了呢？
 让我们打开 如下地址，跟着我一起分析：
-<a href="http://www.typescriptlang.org/play/#src=%0D%0A%2F%2F%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%87%BD%E6%95%B0%20%E5%86%8D%20%E5%B0%81%E8%A3%85%E4%B8%80%E5%B1%82%0D%0Afunction%20mark(id)%20%7B%0D%0A%20%20%2F%2F%20%E7%9C%9F%E6%AD%A3%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8%E5%87%BD%E6%95%B0%E4%BB%A5%E9%97%AD%E5%8C%85%E5%BD%A2%E5%BC%8F%E8%BF%94%E5%9B%9E%0D%0A%20%20return%20(obj%2C%20target%2C%20descriptor)%20%3D%3E%20%7B%0D%0A%20%20%20%20%2F%2F%20%E4%B8%8D%E7%A0%B4%E5%9D%8F%E5%8E%9F%20getter%20%E5%87%BD%E6%95%B0%0D%0A%20%20%20%20const%20old%20%3D%20descriptor.value%3B%0D%0A%20%20%20%20console.log(id)%3B%0D%0A%20%20%20%20return%20descriptor.value%20%3D%20()%20%3D%3E%20old.apply(this%2C%20id)%3B%0D%0A%20%20%7D%0D%0A%7D%0D%0A%0D%0A%0D%0A%0D%0Aclass%20Person%20%7B%0D%0A%0D%0A%20%20%40mark(1)%0D%0A%20%20%40mark(2)%0D%0A%20%20method()%20%7B%20%7D%0D%0A%7D%0D%0A%0D%0A%0D%0Aconst%20p1%20%3D%20new%20Person()%3B%0D%0A%0D%0Ap1.method()%3B%0D%0A%0D%0A%2F%2F%20%E8%BE%93%E5%87%BA%EF%BC%9A%0D%0A2%20%0D%0A1" alt="Type Script - Play ground">
-Type Script - Play ground
-</a>
+[Type Script - Play ground](http://www.typescriptlang.org/play/#src=%0D%0A%2F%2F%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%87%BD%E6%95%B0%20%E5%86%8D%20%E5%B0%81%E8%A3%85%E4%B8%80%E5%B1%82%0D%0Afunction%20mark(id)%20%7B%0D%0A%20%20%2F%2F%20%E7%9C%9F%E6%AD%A3%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8%E5%87%BD%E6%95%B0%E4%BB%A5%E9%97%AD%E5%8C%85%E5%BD%A2%E5%BC%8F%E8%BF%94%E5%9B%9E%0D%0A%20%20return%20(obj%2C%20target%2C%20descriptor)%20%3D%3E%20%7B%0D%0A%20%20%20%20%2F%2F%20%E4%B8%8D%E7%A0%B4%E5%9D%8F%E5%8E%9F%20getter%20%E5%87%BD%E6%95%B0%0D%0A%20%20%20%20const%20old%20%3D%20descriptor.value%3B%0D%0A%20%20%20%20console.log(id)%3B%0D%0A%20%20%20%20return%20descriptor.value%20%3D%20()%20%3D%3E%20old.apply(this%2C%20id)%3B%0D%0A%20%20%7D%0D%0A%7D%0D%0A%0D%0A%0D%0A%0D%0Aclass%20Person%20%7B%0D%0A%0D%0A%20%20%40mark(1)%0D%0A%20%20%40mark(2)%0D%0A%20%20method()%20%7B%20%7D%0D%0A%7D%0D%0A%0D%0A%0D%0Aconst%20p1%20%3D%20new%20Person()%3B%0D%0A%0D%0Ap1.method()%3B%0D%0A%0D%0A%2F%2F%20%E8%BE%93%E5%87%BA%EF%BC%9A%0D%0A2%20%0D%0A1)
  来看右边编译后的 javascript 代码，只看 var decorator 被编译成了啥，下面的不用看，跟源码差不多。**请仔细阅读注释**
 ```javascript
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -234,7 +232,8 @@ p1.method();
 上面啰里啰唆的注释是啥意思呢？
 翻译成人话： 装饰器的执行顺序是个 栈， 后进先出。像极了... 爱情？不，像极了 **洋葱模型**。
 
-##### 2. mixin (混合)
+##### 2. combine (合并)
+合并指的是装饰器装饰某个类的属性的时候，同时应用多个装饰器的模式。（要跟下面的 `@mixin`）区分
 ```javascript
 
 function eatApple(count) {
@@ -255,7 +254,7 @@ function runMeter(long) {
 }
 
 
-function mixin(...descriptors) {
+function combine(...descriptors) {
   // 想点办法，让入参的每个函数立马执行！要把自己得到的对象分配给两个小弟
   return (obj, target, descriptor) => descriptors.forEach(d => d.apply(this, [obj, target, descriptor]));
 }
@@ -263,7 +262,7 @@ function mixin(...descriptors) {
 
 class Person {
 
-  @mixin(eatApple(1), runMeter(9))
+  @combine(eatApple(1), runMeter(9))
   method() { }
 }
 
@@ -276,7 +275,7 @@ p1.method();
 吃了一个苹果
 跑了 9 米
 ```
-可见，在 `@mixin()` 中传入的参数顺序，竟然跟最终的顺序 是一样的，咦？不是洋葱吗？这压根不是栈啊！
+可见，在 `@combine()` 中传入的参数顺序，竟然跟最终的顺序 是一样的，咦？不是洋葱吗？这压根不是栈啊！
 脑子里回想一下刚才解析源码的过程，我再次望向了这次的源码：
 ```javascript
 var Person = /** @class */ (function () {
@@ -284,7 +283,7 @@ var Person = /** @class */ (function () {
     }
     Person.prototype.method = function () { };
     __decorate([
-        mixin(eatApple(1), runMeter(9))
+        combine(eatApple(1), runMeter(9))
     ], Person.prototype, "method", null);
     return Person;
 ```
@@ -310,7 +309,7 @@ function runMeter(long) {
 }
 
 
-function mixin(...descriptors) {
+function combine(...descriptors) {
   // 想点办法，让入参的每个函数立马执行！要把自己得到的对象分配给两个小弟
   return (obj, target, descriptor) => descriptors.forEach(d => d.apply(this, [obj, target, descriptor]));
 }
@@ -318,8 +317,8 @@ function mixin(...descriptors) {
 
 class Person {
 
-  @mixin(eatApple(1), runMeter(9))
-  @mixin(eatApple(5),runMeter(100))
+  @combine(eatApple(1), runMeter(9))
+  @combine(eatApple(5),runMeter(100))
   method() { }
 }
 
@@ -333,6 +332,25 @@ p1.method();
 跑了 100 米
 吃了 1 个 苹果
 跑了 9 米
+```
+##### 3. mixin (混合) 
+mixin 意为在一个对象之中混入另外一个对象的方法。
+```javascript
+function mixins(...list) {
+  return function (target) {
+  // Object.assign 可用于对象，即 编译后的 es3 runtime 指向 class.prototype
+    Object.assign(target.prototype, ...list);
+  };
+}
+const Foo = {
+  foo() { console.log('foo') }
+};
+
+@mixins(Foo)
+class MyClass {}
+
+let obj = new MyClass();
+obj.foo() // "foo"
 ```
 
 <b>😘 觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b>
