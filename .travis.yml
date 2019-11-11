@@ -9,11 +9,10 @@ install:
 
 script:
   - hexo g
-  - mkdir public/
-  - cp scripts/lunch_blog.js  public/
 
 after_script:
   - cd ./public
+  - cp ../scripts/lunch_blog.js  ./
   - git init
   - git config user.name "ZQ-jhon"
   - git config user.email "350037310@qq.com"\
