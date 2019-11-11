@@ -14,7 +14,6 @@ script:
 
 after_script:
   - cp lunch_blog.js  public/
-  - cp .gitignore public/
   - cd ./public
   - git init
   - git config user.name "ZQ-jhon"
@@ -25,7 +24,6 @@ after_script:
 
 branches:
   only:
-  
     - hexo
 env:
  global:
