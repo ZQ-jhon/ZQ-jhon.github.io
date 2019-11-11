@@ -15,8 +15,9 @@ after_script:
   - cp ../scripts/lunch_blog.js  ./
   - git init
   - git config user.name "ZQ-jhon"
-  - git config user.email "350037310@qq.com"\
-  - git commit -m "Update articles to static html with TRAVIS-CI."
+  - git config user.email "350037310@qq.com"
+  - git add .
+  - git commit -m "Update Readme docs to static html with TRAVIS-CI."
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
 
