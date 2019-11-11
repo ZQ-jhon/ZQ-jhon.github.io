@@ -11,9 +11,9 @@ install:
 
 script:
   - hexo g
+  - cp lunch_blog.js  public/
 
 after_script:
-  - cp lunch_blog.js  public/
   - cd ./public
   - git init
   - git config user.name "ZQ-jhon"
