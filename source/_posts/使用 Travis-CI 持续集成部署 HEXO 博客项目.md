@@ -53,10 +53,7 @@ language: node_js
 node_js: stable
 
 install:
-  - npm install -g gulp
   - npm install
-
- # - npm install -g gulp
 
 script:
   - hexo g
