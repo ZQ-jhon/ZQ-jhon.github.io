@@ -6,18 +6,17 @@ steps:
     versionSpec: '12.x'
     checkLatest: true
   name: 'building'
-- script: ls -ls
 - script: npm install
 - script: npx hexo g
   name: 'initChildRepo'
-- script: cd ./public
-- script: ls
-- script: sudo cp ../Dockerfile Dockerfile
-- script: sudo cp ../nginx.conf nginx.conf
-- script: git init
-- script: git config user.name "ZQ-jhon"
-- script: git config user.email "350037310@qq.com"
-- script: git add .
+- script: |
+    cd ./public
+    cp ../Dockerfile Dockerfile
+    cp ../nginx.conf nginx.conf
+    git init
+    git config user.name "ZQ-jhon"
+    git config user.email "350037310@qq.com"
+    git add .
+    git commit -m "Update Docs with auzre-pipeline"
+    git push --force --quiet "https://${secret.GH_TOKEN}@github.com/ZQ-jhon/ZQ-jhon.github.io.git" master:master
   name: 'commitAndPush'
-- script: git commit -m "Update Docs with auzre-pipeline"
-- script: git push --force --quiet "https://${secret.GH_TOKEN}@github.com/ZQ-jhon/ZQ-jhon.github.io.git" master:master
