@@ -6,6 +6,7 @@ steps:
     versionSpec: '12.x'
     checkLatest: true
   name: 'building'
+- script: ls -ls
 - script: npm install
 - script: npx hexo g
   name: 'initChildRepo'
