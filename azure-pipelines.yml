@@ -8,8 +8,8 @@ steps:
   name: 'building'
 - script: npm install
 - script: npx hexo g
-  name: 'initChildRepo'
-- script: |
+  name: 'push'
+- pwsh: |
     cd ./public
     cp ../Dockerfile Dockerfile
     cp ../nginx.conf nginx.conf
@@ -18,5 +18,4 @@ steps:
     git config user.email "350037310@qq.com"
     git add .
     git commit -m "Update Docs with auzre-pipeline"
-    git push --force --quiet "https://${secret.GH_TOKEN}@github.com/ZQ-jhon/ZQ-jhon.github.io.git" master:master
-  name: 'commitAndPush'
+    git push --force --quiet "https://$AZURE_PAT@github.com/ZQ-jhon/ZQ-jhon.github.io.git" master:master
