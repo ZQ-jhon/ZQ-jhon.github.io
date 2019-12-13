@@ -12,8 +12,8 @@ steps:
   name: 'initChildRepo'
 - script: cd ./public
 - script: cat ../Dockerfile
-- script: sudo cp ../Dockerfile ./
-- script: sudo cp ../nginx.conf ./
+- script: sudo cp ../Dockerfile Dockerfile
+- script: sudo cp ../nginx.conf nginx.conf
 - script: git init
 - script: git config user.name "ZQ-jhon"
 - script: git config user.email "350037310@qq.com"
