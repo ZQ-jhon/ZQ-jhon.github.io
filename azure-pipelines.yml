@@ -6,15 +6,13 @@ steps:
     versionSpec: '12.x'
     checkLatest: true
   name: 'building'
+- script: ls -ls
 - script: npm install
 - script: npx hexo g
-
   name: 'initChildRepo'
 - script: cd ./public
-  name: 'copyFiles'
 - script: sudo cp ../Dockerfile ./
 - script: sudo cp ../nginx.conf ./
-  name: 'gitInit'
 - script: git init
 - script: git config user.name "ZQ-jhon"
 - script: git config user.email "350037310@qq.com"
