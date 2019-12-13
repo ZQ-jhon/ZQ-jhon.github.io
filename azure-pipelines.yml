@@ -11,6 +11,7 @@ steps:
 - script: npx hexo g
   name: 'initChildRepo'
 - script: cd ./public
+- script: ls
 - script: sudo cp ../Dockerfile Dockerfile
 - script: sudo cp ../nginx.conf nginx.conf
 - script: git init
