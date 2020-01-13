@@ -13,6 +13,7 @@ steps:
     cd ./public
     cp ../Dockerfile Dockerfile
     cp ../nginx.conf nginx.conf
+    cp ../.gitignore
     git init
     git config user.name "ZQ-jhon"
     git config user.email "350037310@qq.com"
