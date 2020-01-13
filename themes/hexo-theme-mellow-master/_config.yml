@@ -197,9 +197,9 @@ toc:
 
 # 友情链接
 blogroll:
-  #item1:
-   # name: Michale.Lu‘s Blog
-    #url: https://www.lujingtao.com
+  item1:
+    name: Owner Host
+    url: https://zq-jhon.club
   #item2:
     #name: gitee
     #url: https://www.gitee.com
@@ -208,11 +208,11 @@ blogroll:
     #url: https://www.coding.net
 
 # 版权起始年份
-since_year: 2018
+since_year: 2017
 
 # icp备案号
 ## 例如ICP_license: 京ICP备123456号
-ICP_license: false
+ICP_license: 陇ICP备19004074号
 
 # 驱动引擎/主题等信息
 power: false
@@ -253,7 +253,7 @@ leancloud_visitors:
 
 # 数学公式
 mathjax:
-  enable: true
+  enable: false
   cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
 
 # 是否使用按钮waves插件
