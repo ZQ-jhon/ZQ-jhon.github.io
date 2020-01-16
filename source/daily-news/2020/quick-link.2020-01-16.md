@@ -1,11 +1,3 @@
----
-title: daily-news-2020-01-16
-date: 2020-01-16 14:35:00
-tags: [daily-news]
-reward: true #是否开启打赏功能
-comment: true #是否开启评论功能
----
-
 ## quick-link
 
 来自 GoogleChromeLib team 的小玩意，可以在浏览器空闲时，进行资源的预加载，使得之后有可能要跳转的路由会加载的更快。
