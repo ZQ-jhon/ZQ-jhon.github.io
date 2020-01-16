@@ -18,5 +18,5 @@ steps:
     git config user.name "ZQ-jhon"
     git config user.email "350037310@qq.com"
     git add .
-    git commit -m "🤖 Update Docs with auzre-pipeline bot"
+    git commit -m "🤖 Update Docs with auzre-pipeline bot."
     git push --force --quiet "https://$(Azure_PAT)@github.com/ZQ-jhon/ZQ-jhon.github.io.git" master:master
