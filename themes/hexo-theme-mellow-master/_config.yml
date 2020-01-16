@@ -79,10 +79,10 @@ menu:
     url: /archives
     icon: archives
 
-  tags:
-    text: 笔记
-    url: /tags
-    icon: tags
+  daily-news:
+    text: 日报
+    url: /daily-news
+    icon: newspaper-o
 
   about:
     text: 关于
