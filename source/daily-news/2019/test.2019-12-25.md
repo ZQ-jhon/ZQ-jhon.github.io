@@ -12,7 +12,6 @@
 
 [x-state](https://github.com/davidkpiano/xstate) 既然前端都是数据驱动的 SPA，直接断言每个状态如何转换/变化，就完事了。
 
----
 
 
 <b>😘 觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b>

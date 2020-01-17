@@ -20,7 +20,6 @@ crowdin 集成了 Google translate 以及 MicroSoft translate 这样的老牌机
 [Read More](https://support.crowdin.com/project-reports/)
 
 
----
 
 
 <b>😘 觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b>

@@ -10,6 +10,5 @@ Font Awesome 5.X 更新了许许多多的图标，包括 IoT、外星人、大�
 
 [Font Awesome 官网](https://fontawesome.com/)
 
----
 
 <b>😘 觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b>

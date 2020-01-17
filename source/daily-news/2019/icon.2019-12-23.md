@@ -81,6 +81,4 @@ Use in template:
   <nb-icon icon="{{theme.icon}}" pack="{{packName}}"> </nb-icon>
 ```
 
----
-
 <b>😘 觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b>

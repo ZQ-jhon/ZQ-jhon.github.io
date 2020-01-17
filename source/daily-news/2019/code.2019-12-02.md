@@ -43,7 +43,6 @@ Token 流可以通过特定的解析规则 (parser) 生成 AST，AST 一定程�
 *[1] 意为制作出的产品，出处：阿里云效*
 *[2] [TypeScript Deep Dive] https://basarat.gitbooks.io/typescript/docs/compiler/parser-functions.html*
 
----
 
 
 <b>😘 觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b>
