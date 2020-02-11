@@ -1,6 +1,6 @@
 ---
 title: Base64 encode decode image #标题
-date: 20190906 17:33:01 #创建时间
+date: 2019-09-06 17:33:01 #创建时间
 tags: [javascript] #标签(同级)
 reward: true #是否开启打赏功能
 comment: true #是否开启评论功能
