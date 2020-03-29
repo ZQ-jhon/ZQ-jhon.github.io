@@ -20,14 +20,15 @@ $ git clone xxxx@github.git
 ```bash
 $ eval "$(ssh-agent -s)"
 $ ssh-add ~/.ssh/id_rsa
-``` 
+
+```
+
 
 发现还是不对。
 
 ## build 的姿势不对
 首先，在执行 git 相关的命令时，最好不要使用 sudo, github 官方也给出了指导 
 [官方建议](https://help.github.com/en/github/authenticating-to-github/error-permission-denied-publickey)
-
 so, 在 linux 环境下，最好的方式就是直接以 root 的身份来操作目录和 cli：
 
 ```bash
