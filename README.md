@@ -7,3 +7,8 @@
 分支 master 是编译后的目录。
 <br>
 分支 hexo 是存放一些源码文件的目录
+
+## Get Start
+`$ npm install hexo-cli -g`
+`$ npm install`
+`$ hexo s -o`
