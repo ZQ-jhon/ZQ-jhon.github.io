@@ -70,7 +70,7 @@ MacOS 10.15 镜像：[https://www.mediafire.com/file/7wm2251an4c2n64/macOS_Catal
 {% asset_image 8.png %}
 
 得到成功的 stout 后，继续输入 reboot 重启。
-
+（备注：如果你不能 `sudo mount -uw` 那么请先 `su sudo`）
 
 关闭以后，发现 System/Library/PrivateFrameworks/SideCarCore.framework/Versions/A/ 不具备写入权限，你 download 下来的 SidecarCore 无法写入到该目录，也无法通过拖拽等方式移入 chown 也不管用，一番 google 后，来到了这里：
 [https://github.com/pookjw/SidecarPatcher#how-to-patch](https://github.com/pookjw/SidecarPatcher#how-to-patch)
@@ -91,7 +91,8 @@ MacOS 10.15 镜像：[https://www.mediafire.com/file/7wm2251an4c2n64/macOS_Catal
 这时，打开 AppStore 就可以正常的下载 Xcode 了
 2. （不推荐）注册海外 apple id，去 [https://developer.apple.com/download/more/](https://developer.apple.com/download/more/) 下载 xcode 历史版本
 
-## 运行效果
-待更新
+## 难点
+根据你自己的 Sidecar 设备没选择好对应的 SidecarCore 即可，Apple 是根据 blacklist 来屏蔽一些老设备的，具体请看：
 
+[https://github.com/ben-z/free-sidecar](https://github.com/ben-z/free-sidecar)
 <b>😘 觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b>
