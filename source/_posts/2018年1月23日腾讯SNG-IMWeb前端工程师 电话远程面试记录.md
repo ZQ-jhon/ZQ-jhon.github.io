@@ -135,20 +135,4 @@ comment: true #是否开启评论功能
  
 
 
-
-
-
-
-
-<script type="text/javascript">
-const password = 'tycho';
-if(window.prompt('请输入密码')==123456){
-
-alert('password success')
-
-}else{
-alert('password error');window.history.back(-1);
-}          
-</script>
-
 <b>觉得文章有用？点击下方打赏，鼓励作者更好的写作！</b>
