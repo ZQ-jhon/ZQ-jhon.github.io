@@ -30,7 +30,7 @@
         background: @textPrimaryColorWhite;
         position: relative;
         z-index: 1;
-        
+
         span{
             text-align: center;
             width: 2.5em;
@@ -55,6 +55,7 @@
     #local-search-result{
         width: 100%;
         height: calc( ~"100% - 2.5em" );
+        pointer-events: none;
         position: relative;
         overflow-y: scroll;
         #no-result{
@@ -99,7 +100,7 @@
             &:hover{
                 color: @textPrimaryColorBlack;
             }
-            
+
             .search-keyword{
                 border-bottom: 1px dashed @primaryColor_2;
                 font-weight: bold;
@@ -109,7 +110,7 @@
         }
     }
 
-    
+
 }
 
 
@@ -127,5 +128,5 @@
         right: 0;
         top: 0;
     }
-    
+
 }

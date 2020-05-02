@@ -14,7 +14,7 @@
                 return '<div class="'+ $1 +'">'
             }) %>
         </div>
-        <% if (page.reward || typeof page.reward === "undefined") { 
+        <% if (page.reward || typeof page.reward === "undefined") {
             if (theme.reward.alipay || theme.reward.wechat) { %>
             <%- partial('_partial/post/reward-btn') %>
             <% } %>
@@ -30,11 +30,7 @@
             <%- partial('_partial/post/share-fab') %>
         </div>
         <% } %>
-        <% if (page.comments || typeof page.comments === "undefined") { %>
-        <div class="card">   
-           <%- partial('_partial/post/comment') %>
-        </div>
-        <% } %>
+
     </article>
     <% if (page.reward || typeof page.reward === "undefined") {
         if (theme.reward.alipay || theme.reward.wechat) { %>

@@ -30,7 +30,6 @@ $.extend({
 		var bannerH = $('.post-header').outerHeight();
 		var headerH = $('#header').outerHeight();
 		var titles = $('#post-content').find('h1, h2, h3, h4');
-		var scrollTop = $(document).scrollTop();
 		var card = $('.post-card');
 		return {
 			fixed: function (top) {

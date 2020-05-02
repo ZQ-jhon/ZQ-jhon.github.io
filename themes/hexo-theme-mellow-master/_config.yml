@@ -56,7 +56,6 @@ email: zhangqiang199411@gmail.com
 ## 使用fontawesome图标，只需要写图标名。github -> icon-github | fa-github
 ## http://http://fontawesome.dashgame.com/
 menu_link:
-  GITHUB: https://github.com/ZQ-jhon | github
   QQ :  http://sighttp.qq.com/authd?IDKEY=1c72f08d824e28c2b7c02e5b43e8e6a04124774470d4dcce | qq
   CDDN: http://blog.csdn.net/qq_20264891 | copyright
 
@@ -102,10 +101,10 @@ menu:
     #text: Demo
    # url: /custom
   # icon: plus-square
-  #github:
-    #url: https://github.com/ZQ-jhon
-    #target: _blank
-    #icon: github
+  github:
+    url: https://github.com/ZQ-jhon
+    target: _blank
+    icon: github
 
   #weibo:
     #url: http://www.weibo.com/codefine
@@ -155,7 +154,7 @@ excerpt_length: 200     #截断长度
 
 # 是否显示文章最后更新时间
 ## 位于文章底部的copyright
-show_last_updated: true
+show_last_updated: false
 
 # 版权信息copyright
 ## 位于文章底部
@@ -197,9 +196,6 @@ toc:
 
 # 友情链接
 blogroll:
-  item1:
-    name: Owner Host
-    url: http://www.zq-jhon.club/
   #item2:
     #name: gitee
     #url: https://www.gitee.com

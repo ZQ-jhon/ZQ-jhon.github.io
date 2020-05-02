@@ -12,7 +12,7 @@ timezone: UTC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://ZQ-jhon.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -33,7 +33,7 @@ default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
-render_drafts: false
+render_drafts: true
 post_asset_folder: true
 relative_link: false
 future: true
@@ -108,7 +108,6 @@ neat_js:
     - '**/*.min.js'
     - '**/jquery.fancybox.pack.js'
     - '**/index.js' 
-# 代码压缩 github.com/chenzhutian/hexo-all-minifier 
 all_minifier: true 
  
 html_minifier: 
@@ -130,9 +129,9 @@ js_minifier:
     - '*.min.js' 
  
 image_minifier:  
-  enable: false # 图片不压缩 
+  enable: true # 图片不压缩 
   interlaced: false 
-  multipass: false 
-  optimizationLevel: 2 
+  multipass: true 
+  optimizationLevel: 23
   pngquant: false 
   progressive: false

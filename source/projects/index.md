@@ -40,9 +40,8 @@ const vTodo = $ele('vTodo');
 const ngTodo = $ele('ngTodo');
 const reactTodo = $ele('reactTodo');
 
-console.log(iframe, dora,resume,vTodo,ngTodo,reactTodo)
 
-const linkTo = (link) => iframe.setAttribute('src',link);
+const linkTo = (link) => iframe.setAttribute('src', link);
 
 dora.onclick = function() { linkTo('https://zq-jhon.github.io/draw-a-dora-A-mon-online/'); }
 resume.onclick = function() { linkTo('https://zq-jhon.github.io/resume/'); }
