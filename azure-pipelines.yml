@@ -13,7 +13,7 @@ steps:
     cd ./public
     cp ../Dockerfile Dockerfile
     cp ../nginx.conf nginx.conf
-    cp ../scripts scripts
+    cp -r ../scripts scripts
     cp ../.gitignore .gitignore
     git init
     git config user.name "ZQ-jhon"
