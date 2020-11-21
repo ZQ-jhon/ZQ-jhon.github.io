@@ -160,7 +160,7 @@
             margin: 0 2px;
             list-style: none;
             display: inline-block;
-            
+
             a{
                 color: @textPrimaryColorBlack;
                 .transition(0.4s);
@@ -207,12 +207,13 @@
     background: #000;
     opacity: 0;
     pointer-events: none;
-    .transition(.3s);
+    .transition(0.4s);
 
     &.in {
         visibility: visible;
         pointer-events: auto;
-        opacity: .5;
+        opacity: 0.8;
+        filter: blur(1);
     }
 }
 

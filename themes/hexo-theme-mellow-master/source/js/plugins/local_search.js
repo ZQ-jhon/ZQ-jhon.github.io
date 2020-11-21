@@ -1,5 +1,4 @@
 var searchFunc = function (path, search_id, content_id) {
-
     $.ajax({
         url: path,
         dataType: "xml",
@@ -175,9 +174,9 @@ var searchFunc = function (path, search_id, content_id) {
                             var resultItem = '';
 
                             if (slicesOfTitle.length != 0) {
-                                resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                                resultItem += "<a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
                             } else {
-                                resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                                resultItem += "<a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
                             }
 
                             slicesOfContent.forEach(function (slice) {
@@ -186,7 +185,7 @@ var searchFunc = function (path, search_id, content_id) {
                                     "...</p>" + "</a>";
                             });
 
-                            resultItem += "</li>";
+                            // resultItem += "</li>";
                             resultItems.push({
                                 item: resultItem,
                                 searchTextCount: searchTextCount,
