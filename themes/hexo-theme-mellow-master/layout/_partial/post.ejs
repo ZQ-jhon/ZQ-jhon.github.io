@@ -16,7 +16,7 @@
             }) %>
         </div>
         <%- partial('post/copyright') %>
-        <% if (post.reward || typeof post.reward === "undefined") { 
+        <% if (post.reward || typeof post.reward === "undefined") {
             if (theme.reward.alipay || theme.reward.wechat) { %>
             <%- partial('post/reward-btn') %>
             <% } %>

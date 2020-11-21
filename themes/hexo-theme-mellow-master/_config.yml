@@ -57,8 +57,6 @@ email: zhangqiang199411@gmail.com
 ## http://http://fontawesome.dashgame.com/
 menu_link:
   QQ :  http://sighttp.qq.com/authd?IDKEY=1c72f08d824e28c2b7c02e5b43e8e6a04124774470d4dcce | qq
-  CDDN: http://blog.csdn.net/qq_20264891 | copyright
-
 
 # 添加新菜单项遵循以下规则
 ## menu:
@@ -165,7 +163,7 @@ postMessage: 转载注明出处，原文地址：<a href="<%- url_for(page.path)
 ## 可以在文章markdown中设置reward: false来取消本篇文章的打赏功能
 ## 全局取消直接注释下方配置
 reward:
-  title: 支持作者更好的创作
+  title: 请我喝咖啡
   wechat: /img/wechat.png     #微信
   alipay: /img/alipay.png     #支付宝
 
@@ -208,7 +206,7 @@ since_year: 2017
 
 # icp备案号
 ## 例如ICP_license: 京ICP备123456号
-ICP_license: 陇ICP备19004074号
+# ICP_license: 陇ICP备19004074号
 
 # 驱动引擎/主题等信息
 power: false
@@ -236,9 +234,9 @@ valine:
   appid: LSbj8deFCLr0XdOxT6aGGld9-gzGzoHsz
   appkey: u5T5LgryYWwkfxkw0kjSsTcJ
   notify: true  #是否开启邮箱提醒
-  verify: false  #是否开启验证码
+  verify: true  #是否开启验证码
   placeholder: 如您有其他建议，可以通过左上角的QQ发起回话，或者在 https://zq-jhon.github.io/about/ 中添加我的微信
-  avatar: 'wavatar'  #用户头像
+  avatar: 'retro'  #用户头像
 
 # 文章浏览统计
 leancloud_visitors:
