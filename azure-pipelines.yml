@@ -17,7 +17,7 @@ steps:
     cp ../.gitignore .gitignore
     git init
     git config user.name "ZQ-jhon"
-    git config user.email "350037310@qq.com"
+    git config user.email "ZQ-jhon@outlook.com"
     git add .
     git commit -m "🤖 Update Docs with auzre-pipeline bot @ $(Get-Date -Format 'yyyy-MM-dd hh:mm:ss')"
     git push --force --quiet "https://$(Azure_PAT)@github.com/ZQ-jhon/ZQ-jhon.github.io.git" master:master
